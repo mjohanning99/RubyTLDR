@@ -17,10 +17,10 @@ begin
   Dir.entries(@lcpages).each do |page|
     if page == ARGV[0] + ".md" then
       File.open("#{@lcpages}/#{page}").each_line do |line|
-        puts line.colorize(:color => :black, :background => :red) if /^#/ =~ line
+        puts line.gsub(/#/, "---->").colorize(:color => :black, :background => :red) if /^#/ =~ line
         puts line.colorize(:yellow) if /^>/ =~ line
-        puts line.colorize(:green) if /^-/ =~ line
-        puts line if /^`/ =~ line
+        puts line.gsub(/\n/, "").colorize(:green) if /^-/ =~ line
+        puts line.gsub(/\{/, "").gsub(/\}/, "").gsub(/`/, "").colorize(:color => :black, :background => :blue)+ "\n" if /^`/ =~ line
       end
     end
   end
