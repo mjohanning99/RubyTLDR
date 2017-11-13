@@ -37,5 +37,5 @@ begin
     end
   end
 rescue NoMethodError
-  puts "ERROR:".colorize(:background => :red) + " You need to append an argument to the file [e.g. ./tldr.rb tree] to display the tldr" unless @optparse
+  puts "ERROR:".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information) [NoMethodError]" unless @optparse
 end
