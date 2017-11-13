@@ -20,7 +20,7 @@ parent_directory = File.expand_path('..', File.dirname(__FILE__))
 
 #Option Parser
 OptionParser.new do |opt|
-  opt.on("--help", "-h") { puts "To display a tldr page, write 'tldr' followed by the command you want to have explained. To get a list of the available commands, you can run 'tldr --list'. I would recommend using it in conjuction with a unix pipeline like so: 'tldr --list | sort | less'\n" ; @optparse = true}
+  opt.on("--help", "-h") { puts "HELP:".colorize(:background => :green) + " To display a tldr page, write 'tldr' followed by the command you want to have explained. To get a list of the available commands, you can run 'tldr --list'. I would recommend using it in conjuction with a unix pipeline like so: 'tldr --list | sort | less'\n" ; @optparse = true}
   opt.on("--list", "-l") { puts Dir.entries(@lcpages) ; @optparse = true }
 end.parse!
 
@@ -28,6 +28,7 @@ end.parse!
 begin
   Dir.entries(@lcpages).each do |page|
     if page == ARGV[0] + ".md" then
+      #TODO Create seperate method for parsing the .md files
       File.open("#{@lcpages}/#{page}").each_line do |line|
         puts line.gsub(/#/, "---->").colorize(:color => :black, :background => :red) if /^#/ =~ line
         puts line.colorize(:yellow) if /^>/ =~ line

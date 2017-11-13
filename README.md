@@ -1,8 +1,5 @@
-[![Number of files][tokei-image]][tokei-url]
 [![license][license-image]][license-url]
 
-[tokei-url]: https://github.com/Jeytas/RubyTldr/tree/master/pages
-[tokei-image]: https://tokei.rs/b1/github/Jeytas/RubyTldr?category=files
 [license-url]: https://github.com/Jeytas/RubyTldr/blob/master/LICENSE.md
 [license-image]: https://img.shields.io/github/license/Jeytas/RubyTldr.svg
 
@@ -10,13 +7,13 @@
 ## What is this?
 There exists a project called "tldr-pages" which will output a short explanation of the most commonly used command that was specified by the user (tldr tree will yield information about tree in a short yet precise manner). The goal of RubyTldr is to port that project, which was originally written in some other languages, to Ruby. There already exists such a project, however for the sake of getting some programming practice I am now making my own which is quite different from the the other one as far as I have been able to tell.
 
-![screenshot](screenshot.png)
+![screenshot](lib/media/screenshot.png)
 
 ## Installation and usage
 ### Installation
 To install Tldr you can simply run the following command (on Linux if you have wget installed):
 
-`wget raw.githubusercontent.com/Jeytas/Installers/master/installer_tldr.sh ; bash installer_tldr.sh ; rm -rf installer_tldr.sh`,
+`wget raw.githubusercontent.com/Jeytas/Installers/master/installer_tldr.sh ; bash installer_tldr.sh ; rm -rf installer_tldr.sh`
 
 download the installer yourself and inspect it before running: 
 
