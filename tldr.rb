@@ -1,3 +1,3 @@
 #!/bin/env ruby
 
-load './lib/bin/tldr.rb'
+load "#{File.dirname(__FILE__)}/lib/bin/tldr.rb"

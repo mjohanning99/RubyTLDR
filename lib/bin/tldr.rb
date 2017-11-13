@@ -1,4 +1,5 @@
 #!/bin/env ruby
+
 unless /linux/ =~ RUBY_PLATFORM then
   puts "Only Linux is supported currently"
   exit
@@ -6,11 +7,10 @@ end
 
 #Gems
 require 'colorize'
-# require 'redcarpet'
-# require 'redcarpet/render_strip'
 
 #Pages
-@lcpages = "./lib/pages/commonlinux"
+parent_directory = File.expand_path('..', File.dirname(__FILE__))
+@lcpages = "#{parent_directory}/pages/commonlinux"
 
 #Option Parser
 begin
