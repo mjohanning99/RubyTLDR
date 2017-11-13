@@ -3,6 +3,7 @@
 [license-url]: https://github.com/Jeytas/RubyTldr/blob/master/LICENSE.md
 [license-image]: https://img.shields.io/github/license/Jeytas/RubyTldr.svg
 
+# RubyTldr
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [RubyTldr](#rubytldr)
@@ -19,8 +20,6 @@
 		- [Contributing](#contributing)
 
 <!-- /TOC -->
-
-# RubyTldr
 ## What is this?
 Recently, I discovered the 'tldr-pages' project and I found it very useful. The projects main idea is very simple – Providing scaled down man-pages that are easy to read, quick to understand and have the most importants commands easily visible with examples. The problem with most man-pages is that they are often written in a difficult to understand manner, they often contain way too much information and the information you're looking for might be buried on some pages later.
 The original tldr-pages is written in a variety of languages as far as I am able to tell. There is a Ruby port already available, however I wanted to create my own port of it to Ruby, mainly as as programming excersise. I am not basing my project on 'tldrb' however.
