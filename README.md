@@ -5,15 +5,21 @@
 
 # RubyTldr
 ## What is this?
-Recently I discovered the 'tldr-pages' project and I found it very useful. The projects main idea is very simple – Providing scaled down man-pages that are easy to read, quick to understand and have the most importants commands easily visible with examples. The original tldr-pages is written in a variety of languages as far as I am able to tell. There is a Ruby port already available, however I wanted to create my own port of it to Ruby, mainly as as programming excersise. I am not basing my project on 'tldrb' however.
+Recently I discovered the 'tldr-pages' project and I found it very useful. The projects main idea is very simple – Providing scaled down man-pages that are easy to read, quick to understand and have the most importants commands easily visible with examples. The problem with most man-pages is that they are often written in a difficult to understand manner, they often contain way too much information and the information you're looking for might be buried on some pages later.
+The original tldr-pages is written in a variety of languages as far as I am able to tell. There is a Ruby port already available, however I wanted to create my own port of it to Ruby, mainly as as programming excersise. I am not basing my project on 'tldrb' however.
 
 ![screenshot](lib/media/screenshot.png)
 
 ## Installation and usage
+Please note that as of now, Linux is the only supported operating system for RubyTldr and you will not be able to run RubyTldr on any other OS.
+
 ### Installation
 I tried keeping the installation process as easy and accessible as possible. I am still new to shell scripting, so errors might occur when installing the program. If you encounter an error, please file an Issue on this Repository.
 
+#### Automatic installation
 __WARNING__: When you install RubyTldr using one of my installers, please be aware that it might potentially break other "tldr" installations you have installed on your computer. When you run the installer, an alias is added into your .bashrc file which might conflict with other pre-existing tldr installations.
+
+__NOTE__: The installer requires you to have `git` and `wget` installed on your system and also requires your shell to be Bash.
 
 To install Tldr you can simply run the following command:
 
@@ -23,9 +29,8 @@ download the installer yourself and inspect it before running:
 
 [Installer](https://raw.githubusercontent.com/Jeytas/Installers/master/installer_tldr.sh)
 
-or just clone the repository and install it yourself.
-
-__NOTE__: The installer requires you to have `git` and `wget` installed on your system and also requires your shell to be Bash.
+#### Manual installation
+If you do not want to download any of my installers because you don't trust them or you simply want to download it yourself, you can do so very easily. Simply download this repository (there's a green button at the top that allows you to do so) and extract it. When you open the folder you extracted it into, you will see the same files as on this repository. The easiest way of starting RubyTldr from here on is by starting the "tldr.rb" file. All it does is start the "tldr.rb" file located in the "lib/bin" directory.
 
 ### Usage
 #### Preamble
@@ -35,10 +40,10 @@ After using one of the installers that I provided, please try and run `tldr --he
 I am using Ruby 2.4.2, so it's only officially supported on that version. However, I am very certain it will work on older versions of Ruby as well.
 
 #### Gems (extensions) needed
-In order for RubyTldr to correctly display the tldr-pages, you need to install a Ruby gem (which are the extensions of Ruby). This gem will provide colours and will colour the output of RubyTldr. Installing a gem can be done by typing `[sudo] gem install colorize` (Some systems / Ruby installations require the `sudo` and some don't). Afterwards, you will be ready to start RubyTldr with colours!
+In order for RubyTldr to correctly display the tldr-pages, you need to install a Ruby gem (which are the extensions of Ruby). This gem will provide colours and will colour the output of RubyTldr. Installing a gem can be done by typing `[sudo] gem install colorize` (Some systems / Ruby installations require the `sudo` and some don't). Afterwards, you will be ready to start RubyTldr with colours! Please note that you need to install the gem even if you chose to install RubyTldr with the automatic installer. I am looking for a way of avoiding this, but in the meanntime, the gem must be installed manually.
 
 #### General usage
-The usage of RubyTldr is as straightforward as the original tldr – Simply start the .rb file and append a command you wish to get more information on and RubyTldr will display it on your terminal in various colours.
+The usage of RubyTldr is as straightforward as the original tldr – Simply type "tldr" and append a command you wish to get more information on and RubyTldr will display it on your terminal in various colours (if you type tldr tar the information you can see on the picture at the top of this Readme will be displayed).
 There are also two flags you can use:
 * `--help` will provide you with some help regarding the programming
 * `--list` will list all the available commands
@@ -46,4 +51,4 @@ There are also two flags you can use:
 If you want to use `--list`, I would hightly recommend combining it with other Unix commands using the Unix pipeline as such: `tldr --list | sort | less`. This will sort the commands alphabetically and put them into a scrollable list. To search for a specific command you can use `grep` as such `tldr --list | grep -i "search_term_here"`
 
 ### Contributing
-I welcome all contributions, be it actual code contributions, bug reports etc. If you want to make your own version of this program, you are free to do so. It is licensed under the GNU General Public license v3. If you wish to know exactly what you are and aren't allowed to do, please refer to the LICENSE document in this repository.
+I welcome all contributions, be it actual code contributions, bug reports etc. If you want to make your own version of this program, you are free to do so. It is licensed under the GNU General Public License Version 3 (GPLv3). It's one of the most popular free software license and it allows the users to do virtually anything with the software. But before you do, and you wish to know exactly what you are and aren't allowed to do, please refer to the LICENSE document in this repository.
