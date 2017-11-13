@@ -3,9 +3,26 @@
 [license-url]: https://github.com/Jeytas/RubyTldr/blob/master/LICENSE.md
 [license-image]: https://img.shields.io/github/license/Jeytas/RubyTldr.svg
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [RubyTldr](#rubytldr)
+	- [What is this?](#what-is-this)
+	- [Installation and usage](#installation-and-usage)
+		- [Installation](#installation)
+			- [Automatic installation](#automatic-installation)
+			- [Manual installation](#manual-installation)
+		- [Usage](#usage)
+			- [Preamble](#preamble)
+			- [Ruby version](#ruby-version)
+			- [Gems (extensions) needed](#gems-extensions-needed)
+			- [General usage](#general-usage)
+		- [Contributing](#contributing)
+
+<!-- /TOC -->
+
 # RubyTldr
 ## What is this?
-Recently I discovered the 'tldr-pages' project and I found it very useful. The projects main idea is very simple – Providing scaled down man-pages that are easy to read, quick to understand and have the most importants commands easily visible with examples. The problem with most man-pages is that they are often written in a difficult to understand manner, they often contain way too much information and the information you're looking for might be buried on some pages later.
+Recently, I discovered the 'tldr-pages' project and I found it very useful. The projects main idea is very simple – Providing scaled down man-pages that are easy to read, quick to understand and have the most importants commands easily visible with examples. The problem with most man-pages is that they are often written in a difficult to understand manner, they often contain way too much information and the information you're looking for might be buried on some pages later.
 The original tldr-pages is written in a variety of languages as far as I am able to tell. There is a Ruby port already available, however I wanted to create my own port of it to Ruby, mainly as as programming excersise. I am not basing my project on 'tldrb' however.
 
 ![screenshot](lib/media/screenshot.png)
@@ -48,7 +65,7 @@ There are also two flags you can use:
 * `--help` will provide you with some help regarding the programming
 * `--list` will list all the available commands
 
-If you want to use `--list`, I would hightly recommend combining it with other Unix commands using the Unix pipeline as such: `tldr --list | sort | less`. This will sort the commands alphabetically and put them into a scrollable list. To search for a specific command you can use `grep` as such `tldr --list | grep -i "search_term_here"`
+If you want to use `--list`, I would highly recommend combining it with other Unix commands using the Unix pipeline as such: `tldr --list | sort | less`. This will sort the commands alphabetically and put them into a scrollable list. To search for a specific command you can use `grep` as such `tldr --list | grep -i "search_term_here"`
 
 ### Contributing
 I welcome all contributions, be it actual code contributions, bug reports etc. If you want to make your own version of this program, you are free to do so. It is licensed under the GNU General Public License Version 3 (GPLv3). It's one of the most popular free software license and it allows the users to do virtually anything with the software. But before you do, and you wish to know exactly what you are and aren't allowed to do, please refer to the LICENSE document in this repository.
