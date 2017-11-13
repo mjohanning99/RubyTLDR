@@ -1,9 +1,13 @@
 #!/bin/env ruby
+unless /linux/ =~ RUBY_PLATFORM then
+  puts "Only Linux is supported currently"
+  exit
+end
 
 #Gems
 require 'colorize'
-require 'redcarpet'
-require 'redcarpet/render_strip'
+# require 'redcarpet'
+# require 'redcarpet/render_strip'
 
 #Pages
 @lcpages = "./lib/pages/commonlinux"
@@ -20,6 +24,6 @@ begin
       end
     end
   end
-rescue
+rescue NoMethodError
   puts "You need to append an argument to the file [e.g. ./tldr.rb tree] to display the tldr"
 end
