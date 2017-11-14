@@ -9,7 +9,6 @@ end
 #Gems and other files
 require 'optparse'
 require_relative 'download_new_pages.rb'
-
 begin
   require 'colorize'
 rescue LoadError
@@ -21,20 +20,19 @@ end
 #Predefined variables
 options = {}
 @optparse = false
+@parent_directory = File.expand_path('..', File.dirname(__FILE__))
 
 #Pages
-@parent_directory = File.expand_path('..', File.dirname(__FILE__))
 @lcpages = "#{@parent_directory}/pages/commonlinux"
 
 #Option Parser
 OptionParser.new do |opt|
-  opt.on("--help", "-h") { puts "HELP:".colorize(:background => :green) + " To display a tldr page, write 'tldr' followed by the command you want to have explained. To get a list of the available commands, you can run 'tldr --list'. I would recommend using it in conjuction with a unix pipeline like so: 'tldr --list | sort | less'\n" ; @optparse = true}
+  opt.on("--help", "-h") { puts "HELP:".colorize(:background => :green) + " To display a tldr page, write 'tldr' followed by the command you want to have explained.\nWords surrounded by '<>' are files / commands the user needs to add themselves.\nTo get a list of the available commands, you can run 'tldr --list'. I would recommend using it in conjuction with a unix pipeline like so: 'tldr --list | sort | less'\nTo update the list of pages, you can run tldr --update\nTo get even more information about this program, please refer to the README file located in #{File.expand_path('../..', File.dirname(__FILE__))}" ; @optparse = true}
   opt.on("--list", "-l") { puts Dir.entries(@lcpages) ; @optparse = true }
   opt.on("--update", "-u") { `bash #{@parent_directory}/bin/update_pages.sh` ; exit }
 end.parse!
 
 #Getting user input and displaying / formatting output
-
 if Dir.entries(@lcpages).include?("#{ARGV[0]}.md") then
   begin
     Dir.entries(@lcpages).each do |page|
@@ -44,7 +42,7 @@ if Dir.entries(@lcpages).include?("#{ARGV[0]}.md") then
           puts line.gsub(/#/, "---->").colorize(:color => :black, :background => :red) if /^#/ =~ line
           puts line.colorize(:yellow) if /^>/ =~ line
           puts line.gsub(/\n/, "").colorize(:green) if /^-/ =~ line
-          puts line.gsub(/\{/, "").gsub(/\}/, "").gsub(/`/, "").colorize(:color => :black, :background => :blue)+ "\n" if /^`/ =~ line
+          puts line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
         end
       end
     end
