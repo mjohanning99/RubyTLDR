@@ -1,6 +1,6 @@
 #+TITLE: Todo list
-* TODO
 For an always up-to-date ToDo-list, please refer to this document 
 - Remove "commonlinux" directory and seperate it into *Linux* and *Common* directories and search accordingly. (Check if ARGV[0] exists in Linux, if not then search in Common)
 - Update all pages using the archive available at [[tldr.sh/assets/tldr.zip]] and not using Github.
 - Perhaps create a seperate method just for parsing the .md documents.
+- Add support for searching the commands of other operating systems (using an *--operating system* and *-os* flag)
