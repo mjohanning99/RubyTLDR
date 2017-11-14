@@ -30,6 +30,7 @@ options = {}
 OptionParser.new do |opt|
   opt.on("--help", "-h") { puts "HELP:".colorize(:background => :green) + " To display a tldr page, write 'tldr' followed by the command you want to have explained. To get a list of the available commands, you can run 'tldr --list'. I would recommend using it in conjuction with a unix pipeline like so: 'tldr --list | sort | less'\n" ; @optparse = true}
   opt.on("--list", "-l") { puts Dir.entries(@lcpages) ; @optparse = true }
+  opt.on("--update", "-u") { `bash #{@parent_directory}/bin/update_pages.sh` ; exit }
 end.parse!
 
 #Getting user input and displaying / formatting output

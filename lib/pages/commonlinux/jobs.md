@@ -1,19 +1,27 @@
 # jobs
 
-> Display status of jobs in the current session.
+> BASH builtin for viewing information about processes spawned by the current shell.
 
-- Show status of all jobs:
+- View jobs spawned by the current shell:
 
 `jobs`
 
-- Show status of a particular job:
-
-`jobs {{job_id}}`
-
-- Show status and process IDs of all jobs:
+- List jobs and their process ids:
 
 `jobs -l`
 
-- Show process IDs of all jobs:
+- Display information about jobs with changed status:
+
+`jobs -n`
+
+- Display process id of process group leader:
 
 `jobs -p`
+
+- Display running processes:
+
+`jobs -r`
+
+- Display stopped processes:
+
+`jobs -s`

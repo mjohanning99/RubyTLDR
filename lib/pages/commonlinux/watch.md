@@ -1,15 +1,15 @@
 # watch
 
-> Execute a program periodically, showing output fullscreen.
+> Execute a command repeatedly, and monitor the output in full-screen mode.
 
-- Repeatedly run a command and show the result:
+- Monitor files in the current folder:
 
-`watch {{command}}`
+`watch {{ls}}`
 
-- Re-run a command every 60 seconds:
+- Monitor disk space and highlight the changes:
 
-`watch -n {{60}} {{command}}`
+`watch -d {{df}}`
 
-- Monitor the contents of a directory, highlighting differences as they appear:
+- Monitor "node" processes, refreshing every 3 seconds:
 
-`watch -d {{ls -l}}`
+`watch -n {{3}} "{{ps aux | grep node}}"`

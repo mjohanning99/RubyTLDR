@@ -1,16 +1,15 @@
 # at
 
-> Execute commands once at a later time.
-> Service atd (or atrun) should be running for the actual executions.
+> Executes commands at a specified time.
 
-- Execute commands from standard input in 5 minutes (press `Ctrl + D` after entering commands):
+- Open an `at` prompt to create a new set of scheduled commands, press `Ctrl + D` to save and exit:
 
-`at now + 5 min`
+`at {{hh:mm:ss}}`
 
-- Execute a command from standard input at 10:00 AM today:
+- Execute the commands and email the result using a local mailing program such as sendmail:
 
-`echo "{{./make_db_backup.sh}}" | at 1000`
+`at {{hh:mm:ss}} -m`
 
-- Execute commands from a given file next Tuesday:
+- Execute a script at the given time:
 
-`at -f {{path/to/file}} 9:30 PM Tue`
+`at {{hh:mm:ss}} -f {{path/to/file}}`
