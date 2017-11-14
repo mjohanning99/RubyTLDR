@@ -35,7 +35,7 @@ end.parse!
 #Getting user input and displaying / formatting output
 `rm -rf #{@lcpages}/#{ARGV[0]}.md` if File.zero?("#{@lcpages}/#{ARGV[0]}.md")
 
-if Dir.entries(@lcpages).include?(ARGV[0] + ".md") then
+#if Dir.entries(@lcpages).include?(ARGV[0] + ".md") then
   begin
     Dir.entries(@lcpages).each do |page|
       if page == ARGV[0] + ".md" then
@@ -57,7 +57,7 @@ else
     download_page_linux(ARGV[0])
     puts "Please try running the command again"
   rescue
-    begin 
+    begin
       download_page_common(ARGV[0])
       puts "Please try running the command again"
     rescue
