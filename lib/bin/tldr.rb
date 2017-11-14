@@ -33,9 +33,9 @@ OptionParser.new do |opt|
 end.parse!
 
 #Getting user input and displaying / formatting output
-`rm -rf #{@lcpages}/#{ARGV[0]}.md` if File.zero?("#{@lcpages}/#{ARGV[0]}.md")
+#`rm -rf #{@lcpages}/#{ARGV[0]}.md` if File.zero?("#{@lcpages}/#{ARGV[0]}.md") 
 
-#if Dir.entries(@lcpages).include?(ARGV[0] + ".md") then
+if Dir.entries(@lcpages).include?("#{ARGV[0]}.md") then
   begin
     Dir.entries(@lcpages).each do |page|
       if page == ARGV[0] + ".md" then
