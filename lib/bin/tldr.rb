@@ -23,8 +23,8 @@ options = {}
 @optparse = false
 
 #Pages
-parent_directory = File.expand_path('..', File.dirname(__FILE__))
-@lcpages = "#{parent_directory}/pages/commonlinux"
+@parent_directory = File.expand_path('..', File.dirname(__FILE__))
+@lcpages = "#{@parent_directory}/pages/commonlinux"
 
 #Option Parser
 OptionParser.new do |opt|
@@ -33,7 +33,6 @@ OptionParser.new do |opt|
 end.parse!
 
 #Getting user input and displaying / formatting output
-#`rm -rf #{@lcpages}/#{ARGV[0]}.md` if File.zero?("#{@lcpages}/#{ARGV[0]}.md") 
 
 if Dir.entries(@lcpages).include?("#{ARGV[0]}.md") then
   begin
@@ -62,6 +61,7 @@ else
       puts "Please try running the command again"
     rescue
       puts "Page #{ARGV[0]} could not be found on the servers"
+      `rm -rf #{@parent_directory}/pages/commonlinux/#{ARGV[0]}.md`
     end
   end
 end
