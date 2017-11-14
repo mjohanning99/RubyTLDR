@@ -8,7 +8,14 @@ end
 
 #Gems
 require 'optparse'
-require 'colorize'
+
+begin
+  require 'colorize'
+rescue LoadError
+  `gem install colorize`
+  puts "You did not have the colorize gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not, please create an issue on this project't Github repository"
+  exit
+end
 
 #Predefined variables
 options = {}
