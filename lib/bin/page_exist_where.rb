@@ -7,4 +7,5 @@ def page_exist_where()
   return "windows" if Dir.entries(@windows).include?("#{ARGV[0]}.md")
   return "osx" if Dir.entries(@osx).include?("#{ARGV[0]}.md")
   return "sunos" if Dir.entries(@sunos).include?("#{ARGV[0]}.md")
+  return "nil" if ARGV[0].class == NilClass
 end

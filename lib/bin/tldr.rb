@@ -7,7 +7,9 @@ unless /linux/ =~ RUBY_PLATFORM then
 end
 
 #Gems
+require 'fileutils'
 require 'optparse'
+require 'open-uri'
 begin
   require 'colorize'
 rescue LoadError
@@ -17,7 +19,7 @@ rescue LoadError
 end
 
 #Methods
-require_relative 'download_new_pages.rb'
+require_relative 'update_pages.rb'
 require_relative 'check_parse_download.rb'
 require_relative 'parse_md.rb'
 require_relative 'page_exist_where.rb'
