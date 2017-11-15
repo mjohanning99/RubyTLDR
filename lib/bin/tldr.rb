@@ -25,7 +25,6 @@ require_relative 'parse_md.rb'
 require_relative 'page_exist_where.rb'
 
 #Option Parser
-
 require_relative 'option_parser.rb'
 
 #Predefined variables
