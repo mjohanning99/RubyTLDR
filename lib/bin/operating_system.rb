@@ -1,7 +1,7 @@
 #!/bin/env ruby
-#Checks where the page exists in the page folders
 
-def page_exist_where()
+#Checks where the page exists in the page folders
+def operating_system()
   return "linux" if Dir.entries(@linux).include?("#{ARGV[0]}.md")
   return "common" if Dir.entries(@common).include?("#{ARGV[0]}.md")
   return "windows" if Dir.entries(@windows).include?("#{ARGV[0]}.md")
