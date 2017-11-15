@@ -72,7 +72,12 @@ If you want to use `--list`, I would highly recommend combining it with other Un
 
 The words displayed in `<>` are to be replaced by the user according to their needs. For example, in the `tldr tar`, the following means `tar xf replace_this_string_with_your_desired_tar_file -C replace_this_string_with_the_folder_you_want_to_extract_the_tar_to` : `tar xf <source.tar> -C <folder>`. The `<>` do not need to be written into the command, they just signify that it should be replaced according to what the user wants to use the command on.
 
+#### Tldr pages for other operating systems
+You are able to access all the tldr pages from whatever operating system. The operating system the command is intended to be used on is the first thing on the Tldr page, written in all capital letters.
+
 #### New tldr pages
+__NOTE:__ NOT CURRENTLY AVAILABLE
+
 The original tldr project is alive and well. New pages are being added regularly and old ones are being updated. In order to keep up with all the changes, I implemented a feature that will automatically try to download commands that weren't found on your machine. If it is able to find the responding tldr-page on the official Github Repository, it will download it and you will be able to use it locally as well.
 
 ![New pages download](lib/media/newpages.png)
@@ -80,7 +85,7 @@ The original tldr project is alive and well. New pages are being added regularly
 To update all of the pages, you can simply run RubyTldr using the `--update` flag as such: `tldr update`. It will then update your local pages so that they are the same as the ones available online.
 
 ### TODO
-Please refer to the TODO.org document located in this repository for an always updated TODO-list. However, there are still a few things in general that I need to restructure and improve, most of which won't directly impact the user experience. One important feature that I haven't added yet is being able to look at the tldr pages of a specific operating system which is available on the original tldr-pages project.
+Please refer to the TODO.md document located in this repository for an always updated TODO-list. However, there are still a few things in general that I need to restructure and improve, most of which won't directly impact the user experience. One important feature that I haven't added yet is being able to look at the tldr pages of a specific operating system which is available on the original tldr-pages project.
 
 ### Contributing
 I welcome all contributions, be it actual code contributions, bug reports etc. If you want to make your own version of this program, you are free to do so. It is licensed under the GNU General Public License Version 3 (GPLv3). It's one of the most popular free software license and it allows the users to do virtually anything with the software. But before you do, and you wish to know exactly what you are and aren't allowed to do, please refer to the LICENSE document in this repository.
