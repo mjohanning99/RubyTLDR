@@ -1,7 +1,7 @@
 #!/bin/env ruby
 #Checking if the page exists, parsing it using parse_md and downloading it if necessary
 
-def check_parse_download(directory)
+def check_parse_download()
   page = "#{ARGV[0]}.md"
   case page_exist_where()
   when "linux"
