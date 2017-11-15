@@ -6,9 +6,8 @@ unless /linux/ =~ RUBY_PLATFORM then
   exit
 end
 
-#Gems and other files
+#Gems
 require 'optparse'
-require_relative 'download_new_pages.rb'
 begin
   require 'colorize'
 rescue LoadError
@@ -16,6 +15,11 @@ rescue LoadError
   puts "You did not have the colorize gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not, please create an issue on this project't Github repository"
   exit
 end
+
+#Methods
+require_relative 'download_new_pages.rb'
+require_relative 'check_parse_download.rb'
+require_relative 'parse_md.rb'
 
 #Predefined variables
 options = {}
@@ -33,34 +37,4 @@ OptionParser.new do |opt|
 end.parse!
 
 #Getting user input and displaying / formatting output
-if Dir.entries(@lcpages).include?("#{ARGV[0]}.md") then
-  begin
-    Dir.entries(@lcpages).each do |page|
-      if page == ARGV[0] + ".md" then
-        #TODO Create seperate method for parsing the .md files
-        File.open("#{@lcpages}/#{page}").each_line do |line|
-          puts line.gsub(/#/, "---->").colorize(:color => :black, :background => :red) if /^#/ =~ line
-          puts line.colorize(:yellow) if /^>/ =~ line
-          puts line.gsub(/\n/, "").colorize(:green) if /^-/ =~ line
-          puts line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
-        end
-      end
-    end
-  rescue NoMethodError
-    puts "ERROR:".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information) [NoMethodError]" unless @optparse
-  end
-else
-  puts "Page '#{ARGV[0]}' not found... trying to download"
-  begin
-    download_page_linux(ARGV[0])
-    puts "Please try running the command again"
-  rescue
-    begin
-      download_page_common(ARGV[0])
-      puts "Please try running the command again"
-    rescue
-      puts "Page #{ARGV[0]} could not be found on the servers"
-      `rm -rf #{@parent_directory}/pages/commonlinux/#{ARGV[0]}.md`
-    end
-  end
-end
+check_parse_download(@lcpages)
