@@ -28,8 +28,6 @@ require_relative 'operating_system.rb'
 require_relative 'option_parser.rb'
 
 #Predefined variables
-options = {}
-@optparse = false
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
 
 #Pages
