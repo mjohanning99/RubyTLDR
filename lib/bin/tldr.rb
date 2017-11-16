@@ -1,10 +1,7 @@
 #!/bin/env ruby
 
 #Checking platform
-unless /linux/ =~ RUBY_PLATFORM then
-  puts "Only Linux is supported currently"
-  exit
-end
+puts "Only Linux is supported currently" and exit unless /linux/ =~ RUBY_PLATFORM
 
 #Gems and other extensions
 require 'fileutils'
