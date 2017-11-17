@@ -1,7 +1,7 @@
 [![Built with Spacemacs](https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg)](http://spacemacs.org)
 [![license][license-image]][license-url]
 
-[license-url]: https://github.com/Jeytas/RubyTldr/blob/master/LICENSE.md
+[license-url]: https://github.com/Jeytas/RubyTldr/LICENSE.md
 [license-image]: https://img.shields.io/github/license/Jeytas/RubyTldr.svg
 
 # RubyTldr
