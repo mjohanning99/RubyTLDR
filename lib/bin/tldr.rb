@@ -14,14 +14,14 @@ begin
   require 'colorize'
 rescue LoadError
   `sudo gem install colorize`
-  puts "You did not have the colorize gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not, please create an issue on this project't Github repository"
+  puts "You did not have the colorize gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not work, please refer to the README and file an issue on https://github.com/jeytas/rubytldr if nothing else works"
   exit
 end
 begin
   require 'zip'
 rescue LoadError
-  `sudo gem install ruby_zip`
-  puts "You did not have the ruby_zip gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not, please create an issue on this project't Github repository"
+  `sudo gem install rubyzip`
+  puts "You did not have the rubyzip gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not work, please refer to the README and file an issue on https://github.com/jeytas/rubytldr if nothing else works"
   exit
 end
 
