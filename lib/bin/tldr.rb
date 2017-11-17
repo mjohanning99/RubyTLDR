@@ -1,7 +1,7 @@
 #!/bin/env ruby
 
 #Checking platform
-if /linux/ =~ RUBY_PLATFORM then
+unless /linux/ =~ RUBY_PLATFORM then
   puts "Only Linux is currently supported"
   exit
 end
