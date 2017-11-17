@@ -77,8 +77,6 @@ The words displayed in `<>` are to be replaced by the user according to their ne
 You are able to access all the tldr pages from whatever operating system. The operating system the command is intended to be used on is the first thing on the Tldr page, written in all capital letters.
 
 #### New tldr pages
-__NOTE:__ NOT CURRENTLY AVAILABLE
-
 The original tldr project is alive and well. New pages are being added regularly and old ones are being updated. In order to keep up with all the changes, I implemented a feature that will automatically try to download commands that weren't found on your machine. If it is able to find the responding tldr-page on the official Github Repository, it will download it and you will be able to use it locally as well.
 
 ![New pages download](lib/media/newpages.png)
