@@ -18,6 +18,8 @@ def run()
     puts "ERROR:".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)" unless $optparse
   else
     puts "ERROR:".colorize(:background => :red) + " There was no tldr page found for the command #{ARGV[0]}"
+
     #TODO DOWNLOAD NEW PAGES
+    update_pages()
   end
 end
