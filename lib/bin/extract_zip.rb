@@ -1,5 +1,6 @@
-# Extracting zip files using native Ruby (not command line)
+#!/bin/env ruby
 
+# Extracting zip files using native Ruby
 def extract_zip(file, destination)
   FileUtils.mkdir_p(destination)
 

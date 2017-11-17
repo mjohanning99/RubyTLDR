@@ -32,6 +32,9 @@ require_relative 'parse_md.rb'
 require_relative 'operating_system.rb'
 require_relative 'extract_zip.rb'
 
+#Option Parser
+require_relative 'option_parser.rb'
+
 #Predefined variables
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
 
