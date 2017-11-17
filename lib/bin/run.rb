@@ -17,9 +17,13 @@ def run()
   when "nil"
     puts "ERROR:".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)" unless $optparse
   else
-    puts "ERROR:".colorize(:background => :red) + " There was no tldr page found for the command #{ARGV[0]}"
+    puts "ERROR:".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
     puts "We are now updating the page cache, please wait"
-    update_pages()
-    puts "Page cache updated"
+    begin
+      update_pages()
+      puts "Page cache updated"
+    rescue SocketError
+      puts "ERROR".colorize(:background => :red) + " An error occurred whilst updating the page cache. Please check your internet connection"
+    end
   end
 end
