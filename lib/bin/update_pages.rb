@@ -4,7 +4,7 @@
 #This is the method that will update the page cache so that the pages are up-to date [.zip file, checking the Github folders or downloading the .json file
 def update_pages()
   begin
-    TCPSocket.new 'google.com', 80
+    TCPSocket.new 'tldr.sh', 443
   rescue SocketError
     puts "ERROR".colorize(:background => :red) + " An error occurred whilst updating the page cache. Please check your internet connection [SocketError]"
     exit
