@@ -1,7 +1,9 @@
 #!/bin/env ruby
+# coding: utf-8
 
 #This is the method that will update the page cache so that the pages are up-to date [.zip file, checking the Github folders or downloading the .json file
 def update_pages()
+  #https://tldr.sh/assets/index.json – TODO Download json file first and check if command exists, then download and extract zip
   FileUtils.rm_rf("#{@parent_directory}/pages")
   File.open("#{@parent_directory}/pages.zip", "wb") do |saved_file|
     open("https://tldr.sh/assets/tldr.zip", "r") do |read_file|

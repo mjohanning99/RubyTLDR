@@ -5,10 +5,7 @@
 [license-image]: https://img.shields.io/github/license/Jeytas/RubyTldr.svg
 
 # RubyTldr
-
-
-## What is this?
-Recently, I discovered the 'tldr-pages' project and I found it very useful. The projects main idea is very simple – Providing scaled down man-pages that are easy to read, quick to understand and have the most important commands easily visible with examples. The problem with most man-pages is that they are often written in a difficult to understand manner, they often contain way too much information and the information you're looking for might be buried on some pages later.
+Recently, I discovered the 'tldr-pages' project and I found it very useful. The project's main idea is very simple – Providing scaled down man-pages that are easy to read, quick to understand and have the most important commands easily visible with examples. The problem with most man-pages is that they are often written in a difficult to understand manner, they often contain way too much information and the information you're looking for might be buried on some pages later.
 The original tldr-pages is written in a variety of languages as far as I am able to tell. There is a Ruby port already available, however I wanted to create my own port of it to Ruby, mainly as programming exercise. This project is not based on the already available 'tldrb'.
 
 ![screenshot](lib/media/screenshot.png)
@@ -39,7 +36,7 @@ If you do not want to download any of my installers because you don't trust them
 After using one of the installers that I provided, please try and run `tldr --help`. If that command executes correctly, then you have successfully installed RubyTldr. In case the command cannot be found, please restart your current terminal and try again. Should that still not solve the problem, please open an Issue on this Github Repo.
 
 ### Ruby version
-I am using Ruby 2.4.2, so it's only officially supported on that version. However, I am very certain it will work on older or newer versions of Ruby as well.
+I am using Ruby 2.4.2, so it's only officially supported on that version. However, I am very certain it will work on older or newer versions of Ruby as well. I also recommend using [rvm](https://rvm.io) for managing different Ruby installations.
 
 ### General usage
 The usage of RubyTldr is as straightforward as the original tldr – Simply type "tldr" and append a command you wish to get more information on and RubyTldr will display it on your terminal in various colours (if you type tldr tar the information you can see on the picture at the top of this Readme will be displayed).
