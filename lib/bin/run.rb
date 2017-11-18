@@ -19,11 +19,7 @@ def run()
   else
     puts "ERROR:".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
     puts "We are now updating the page cache, please wait"
-    begin
-      update_pages()
-      puts "Page cache updated"
-    rescue SocketError
-      puts "ERROR".colorize(:background => :red) + " An error occurred whilst updating the page cache. Please check your internet connection"
-    end
+    update_pages()
+    puts "Page cache has been updated"
   end
 end

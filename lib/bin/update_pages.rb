@@ -6,7 +6,7 @@ def update_pages()
   begin
     TCPSocket.new 'google.com', 80
   rescue SocketError
-    puts "You do not seem to have an active internet connection. Aborting"
+    puts "ERROR".colorize(:background => :red) + " An error occurred whilst updating the page cache. Please check your internet connection [SocketError]"
     exit
   end
   #https://tldr.sh/assets/index.json – TODO Download json file first and check if command exists, then download and extract zip

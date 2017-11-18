@@ -64,9 +64,6 @@ The main culprit for this will be that you are using the wrong operating system.
 #### Gems not installed
 RubyTldr relies on two extensions of the Ruby programming language, so-called gems. These gems are `colorize` and `rubyzip`. `colorize` will format the output and colorize it so that it looks more appealing and `rubyzip` will extract the .zip file that contains the pages. You need to have both of these gems installed for the program to run. Generally, the program checks if the needed gems are installed on your system and install them if needed. However, that might fail. In that case, please try and install the gems manually.
 
-### Program used to work but no longer does
-If you update the page cache without an active internet connecting, RubyTldr will have already deleted the pages directory and the program cannot find the pages anymore and crashes. This is a known bug which I am trying to fix. In the meantime, try not to update your pages without an active internet connection. Should you already have done so, you can simply download the `tldr.zip` file from here: [https://tldr.sh/assets/tldr.zip](https://tldr.sh/assets/tldr.zip). Afterwards, go into the `lib/` directory and extract it.
-
 ## TODO
 Please refer to the TODO.md document located in this repository for an always updated TODO-list. However, there are still a few things in general that I need to restructure and improve, most of which won't directly impact the user experience. One important feature that I haven't added yet is being able to look at the tldr pages of a specific operating system which is available on the original tldr-pages project. Also, I often add `#TODO` comments to my code, so you might find more information in the source code as well.
 
