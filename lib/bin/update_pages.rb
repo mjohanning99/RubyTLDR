@@ -3,6 +3,12 @@
 
 #This is the method that will update the page cache so that the pages are up-to date [.zip file, checking the Github folders or downloading the .json file
 def update_pages()
+  begin
+    TCPSocket.new 'google.com', 80
+  rescue SocketError
+    puts "You do not seem to have an active internet connection. Aborting"
+    exit
+  end
   #https://tldr.sh/assets/index.json – TODO Download json file first and check if command exists, then download and extract zip
   FileUtils.rm_rf("#{@parent_directory}/pages")
   File.open("#{@parent_directory}/pages.zip", "wb") do |saved_file|
