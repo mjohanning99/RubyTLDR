@@ -40,7 +40,6 @@ require_relative 'option_parser.rb'
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
 
 #Pages
-#TODO : Check if /pages directory exist and only if it does create these, otherwise exit program saying that the /pages directory has been removed
 @linux = "#{@parent_directory}/pages/linux"
 @common = "#{@parent_directory}/pages/common"
 @windows = "#{@parent_directory}/pages/windows"
