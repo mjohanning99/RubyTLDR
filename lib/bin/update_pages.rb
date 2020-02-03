@@ -33,3 +33,5 @@ def update_pages()
     exit
   end
 end
+
+#TODO: Add update_pages_opt() for downloading a new version of the .zip file regardless of whether an unknown command was entered (--update flag). The update_pages() can be mostly copied verbatim, leaving out the parts checking whether or not a specific command exists.
