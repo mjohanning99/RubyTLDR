@@ -13,7 +13,7 @@ def update_pages()
 
   #Downloading index.json from tldr.sh and checking if the entered command exists
   File.open("#{@parent_directory}/index.json", "wb") do |saved_file|
-    open("https://tldr.sh/assets/index.json", "r") do |read_file|
+    URI.open("https://tldr.sh/assets/index.json", "r") do |read_file|
       saved_file.write(read_file.read)
     end
   end
@@ -21,7 +21,7 @@ def update_pages()
   if index.include?(ARGV[0]) then
     FileUtils.rm_rf("#{@parent_directory}/pages")
     File.open("#{@parent_directory}/pages.zip", "wb") do |saved_file|
-      open("https://tldr.sh/assets/tldr.zip", "r") do |read_file|
+      URI.open("https://tldr.sh/assets/tldr.zip", "r") do |read_file|
         saved_file.write(read_file.read)
       end
     end
