@@ -1,5 +1,8 @@
 ##!/bin/bash
 
+ruby_version=$(ruby -v)
+if [[ $ruby_version == *ruby* ]]; then echo "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ..."; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby using your distributions package manager or by compiling it from source"; exit; fi
+
 if [ -e ~/.rtldr ]; then echo "The program seems to have already been installed since the ~/.rtldr directory already exists. In that case, please use the command 'updatetldr'" && exit; else echo "Installation starting."; fi
 
 if [ -f /bin/rtldr ]
@@ -14,6 +17,27 @@ then
         esac
     done
 
+    elif [[ `gem list` != *colorize* ]]
+    then
+        echo "The gem (extension) called 'colorize' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [1 = Yes, 2 = No]"
+        select yn in "Yes" "No"; do
+            case $yn in
+                Yes ) gem install colorize; break;;
+                No ) echo "The colorize gem will not be installed automatically. Please install it manually.";;
+            esac
+        done
+
+    elif [[ `gem list` != *rubyzip* ]]
+    then
+        echo "The gem (extension) called 'rubyzip' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [1 = Yes, 2 = No]"
+        select yn in "Yes" "No"; do
+            case $yn in
+                Yes ) gem install rubyzip; break;;
+                No ) echo "The rubyzip gem will not be installed automatically. Please install it manually.";;
+            esac
+        done
+
+
     echo "Cloning from repository starting."
     git clone https://gitlab.com/mjohanning/RubyTldr.git ~/.rtldr
 
@@ -22,8 +46,8 @@ then
     echo "Creating symlink of ~/.rtldr in /bin."
     sudo ln -s ~/.rtldr/tldr /bin/rtldr
 
-    echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'tldr tldr'. If you get an explanation of this program, then everything worked correctly"
-    echo "To update tldr, please run updatetldr"
+    echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'tldr tldr'. If you get an explanation of this program, then everything worked correctly"echo "To update tldr, please run updatetldr"
+
 
 else
     echo "Cloning from repository starting."
