@@ -33,7 +33,7 @@ Should you want to inspect the source code of the downloader before running it, 
 You can also simply download the `installer.sh` file from the repository and run it yourself.
 
 ### Manual installation
-If you do not want to download any of my installers because you don't trust them or you simply want to download it yourself, you can do so very easily. Simply download this repository (there's a green button at the top that allows you to do so) and extract it. When you open the folder you extracted it into, you will see the same files as on this repository. If you want to start RubyTldr, then you simply type `./tldr` while you are in the RubyTldr directory.
+If you do not want to download any of my installers because you don't trust them or you simply want to download it yourself, you can do so very easily. Simply download this repository (there's a green button at the top that allows you to do so) and extract it. When you open the folder you extracted it into, you will see the same files as on this repository. If you want to start RubyTldr, you will need to open the file named "tldr" (with no file ending), comment the line saying you want to load RubyTldr from the .rtldr folder and uncomment the line saying that you want to load from the local folder. You can then simply run RubyTldr by typing ./tldr when inside the same directory.
 
 ## Usage
 ### Preamble
@@ -44,9 +44,10 @@ I am using Ruby 2.7.0, so it's only officially supported on that version. Howeve
 
 ### General usage
 The usage of RubyTldr is as straightforward as the original tldr – Simply type "rtldr" and append a command you wish to get more information on and RubyTldr will display it on your terminal in various colours (if you type rtldr tar the information you can see on the picture at the top of this Readme will be displayed).
-There are also two flags you can use:
+There are also three flags you can use:
 * `--help` will provide you with some help regarding the programming
 * `--list` will list all the available commands
+* `--update` will update the page database 
 
 If you want to use `--list`, I would highly recommend combining it with other Unix commands using the Unix pipeline as such: `rtldr --list | sort | less`. This will sort the commands alphabetically and put them into a scroll-able list. To search for a specific command you can use `grep` as such `rtldr --list | grep -i "search_term_here"`
 
@@ -59,6 +60,8 @@ You are able to access all the tldr pages from whatever operating system. The op
 The original tldr project is alive and well. New pages are being added regularly and old ones are being updated. In order to keep up with all the changes, I implemented a feature that will automatically try to download commands that weren't found on your machine. If it is able to find the responding tldr-page on the official Gitlab Repository, it will download it and you will be able to use it locally as well.
 
 ![New pages download](lib/media/newpages.png)
+
+If you wish to update your database manually, you can do so with the aforementioned `--update` flag. 
 
 ## Troubleshooting
 ### Program doesn't start
