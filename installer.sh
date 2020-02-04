@@ -46,7 +46,8 @@ then
     echo "Creating symlink of ~/.rtldr in /bin."
     sudo ln -s ~/.rtldr/tldr /bin/rtldr
 
-    echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'tldr tldr'. If you get an explanation of this program, then everything worked correctly"echo "To update tldr, please run updatetldr"
+    echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'rtldr tldr'. If you get an explanation of this program, then everything worked correctly"
+    #echo "To update tldr, please run updatetldr"
 
 
 else
@@ -58,6 +59,6 @@ else
     echo "Creating symlink of ~/.rtldr in /bin."
     sudo ln -s ~/.rtldr/tldr /bin/rtldr
 
-    echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'tldr tldr'. If you get an explanation of this program, then everything worked correctly"
+    echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'rtldr tldr'. If you get an explanation of this program, then everything worked correctly"
     #echo "To update tldr, please run updatetldr"
 fi
