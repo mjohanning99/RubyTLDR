@@ -13,7 +13,7 @@ then
     select yn in "Yes" "No"; do
         case $yn in
             Yes ) sudo rm /bin/rtldr; break;;
-            No ) echo "The symbolic link will not be removed. Please be aware that this may break your rtldr installation.";;
+                No ) echo "The symbolic link will not be removed. Please be aware that this may break your rtldr installation. Setting a symlink manually, instead, and potentially altering a few of the files will now be necessary.";;
         esac
     done
 

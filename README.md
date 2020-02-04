@@ -20,11 +20,11 @@ __WARNING__: When you install RubyTldr using one of my installers, please be awa
 
 The installer should take care of the majority of things, including the installation of the required gems (colorize and rubyzip); however, should rtldr complain about missing gems after running the installer, please refer to the Troubleshooting section down below.
 
-__NOTE__: The installer requires you to have both `git` and `wget` installed on your system; it was tested on both Zsh and Bash, but should, in theory, be compatible with the majority of shells. Should you find that your shell breaks the installation, please file an issue on this project's Gitlab repository.
+__NOTE__: The installer requires you to have both `git` and `wget` installed on your system; it was tested on both Zsh and Bash, but should, in theory, be compatible with the majority of shells. Should you find that your shell breaks the installation, please file an issue on this project's Gitlab repository. Please refer to your distribution's documentation / manual in order to find out how to install both git and wget (a large amount of distrubitions have these two pre-installed).
 
 To install RubyTldr you can simply run the following command:
 
-`wget https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh; bash installer_tldr.sh
+`wget https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh; bash installer_tldr.sh`
 
 Should you want to inspect the source code of the downloader before running it, you can view it here:
 
