@@ -13,9 +13,11 @@ For an always up-to-date ToDo-list, please refer to this document
 
 - [x] Remove "warning: calling URI.open via Kernel#open is deprecated, call URI.open"
 
-## Items not yet finished / items being worked on ##
+- [x] Fix "invalid option: --update (OptionParser::InvalidOption" (running `tldr --update` results in this error)
 
-- [ ] Fix "invalid option: --update (OptionParser::InvalidOption" (running `tldr --update` results in this error)
+- [x] Fix gem dependency errors (the method currently n use for installing missing gems virtually never works)
+
+## Items not yet finished / items being worked on ##
 
 - [ ] Create a more user-friendly installation script (and, most importantly, one that does not run the command `rm -rf`!).
 
@@ -23,4 +25,3 @@ For an always up-to-date ToDo-list, please refer to this document
 
 - [ ] [still needs work] Add support for searching the commands of other operating systems (using an *--operating system* and *-os* flag) [Implemented in a different way. All commands for all operating systems are available without the need of adding an additional flag. The corresponding OS is listed at the top... still needs work, usage of -os flag might be better since there are several of the same commands for each operating system)
 
-- [ ] Fix gem dependency errors (the method currently n use for installing missing gems virtually never works)
