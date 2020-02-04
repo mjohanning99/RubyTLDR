@@ -22,3 +22,5 @@ For an always up-to-date ToDo-list, please refer to this document
 - [ ] The official tldr project now supports several languages besides English -> Try adding support for these.
 
 - [ ] [still needs work] Add support for searching the commands of other operating systems (using an *--operating system* and *-os* flag) [Implemented in a different way. All commands for all operating systems are available without the need of adding an additional flag. The corresponding OS is listed at the top... still needs work, usage of -os flag might be better since there are several of the same commands for each operating system)
+
+- [ ] Fix gem dependency errors (the method currently in use for installing missing gems virtually never works)
