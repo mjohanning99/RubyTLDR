@@ -24,7 +24,7 @@ __NOTE__: The installer requires you to have both `git` and `wget` installed on 
 
 To install RubyTldr you can simply run the following command:
 
-`wget https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh; bash installer_tldr.sh`
+`wget https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh ; bash installer.sh`
 
 Should you want to inspect the source code of the downloader before running it, you can view it here:
 
