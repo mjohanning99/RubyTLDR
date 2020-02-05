@@ -17,6 +17,7 @@ For an always up-to-date ToDo-list, please refer to this document
 
 - [x] Fix gem dependency errors (the method currently n use for installing missing gems virtually never works)
 
+- [x] Fix "No such file or directory @ dir_initialize - /home/numitr0n/Documents/Programming/RubyTLDR/lib/pages/linux (Errno::ENOENT)" when no `pages` directory could be found -> Automatically check, inform the user and download the latest pages if that is the case.
 ## Items not yet finished / items being worked on ##
 
 - [ ] Create a more user-friendly installation script (and, most importantly, one that does not run the command `rm -rf`!).
@@ -27,4 +28,4 @@ For an always up-to-date ToDo-list, please refer to this document
 
 - [ ] The program thinks a page is available in the downloaded .json file even if it isn't -> do not use .include?(), but something more accurate.
 
-- [ ] Fix "No such file or directory @ dir_initialize - /home/numitr0n/Documents/Programming/RubyTLDR/lib/pages/linux (Errno::ENOENT)" when no `pages` directory could be found -> Automatically check, inform the user and download the latest pages if that is the case.
+- [x] Add more verbose and colourful output (for things such as updating pages)

@@ -47,4 +47,9 @@ require_relative 'option_parser.rb'
 @osx = "#{@parent_directory}/pages/osx"
 
 #Running the actual program
-run()
+begin
+  run()
+rescue Errno::ENOENT
+  puts "ERROR!".colorize(:background => :red) + " RubyTldr was unable to find any pages on your machine. This is normal if you have just installed it. RubyTldr will now try to download the pages, please wait ..."
+  update_pages_opt(@parent_directory)
+end
