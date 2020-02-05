@@ -32,3 +32,7 @@ For an always up-to-date To-Do-list, please refer to this document.
 - [ ] Add more verbose and colourful output (for things such as updating pages).
 
 - [ ] Create two installers, one offline and one online.
+
+- [ ] Create better Markdown parsing; perhaps a gem is available?
+
+- [ ] Update --help flag
