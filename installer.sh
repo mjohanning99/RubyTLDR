@@ -20,24 +20,24 @@ fi
 
 if [[ `gem list` != *colorize* ]]
 then
-echo "The gem (extension) called 'colorize' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [1 = Yes, 2 = No]"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) gem install colorize; break;;
-        No ) echo "The colorize gem will not be installed automatically. Please install it manually."; break;;
-    esac
-done
+    echo "The gem (extension) called 'colorize' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [1 = Yes, 2 = No]"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) gem install colorize; break;;
+            No ) echo "The colorize gem will not be installed automatically. Please install it manually."; break;;
+        esac
+    done
 fi
 
 if [[ `gem list` != *rubyzip* ]]
 then
-echo "The gem (extension) called 'rubyzip' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [1 = Yes, 2 = No]"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) gem install rubyzip; break;;
-        No ) echo "The rubyzip gem will not be installed automatically. Please install it manually."; break;;
-    esac
-done
+    echo "The gem (extension) called 'rubyzip' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [1 = Yes, 2 = No]"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) gem install rubyzip; break;;
+            No ) echo "The rubyzip gem will not be installed automatically. Please install it manually."; break;;
+        esac
+    done
 fi
 
 echo "Cloning from repository starting."

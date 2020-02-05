@@ -18,7 +18,7 @@ I tried keeping the installation process as easy and accessible as possible. I a
 ### Automatic installation
 __WARNING__: When you install RubyTldr using one of my installers, please be aware that it might potentially break other "tldr" installations you have installed on your computer. The installer will add a symlink of the "tldr" file to your computer's /bin folder and the symlink will be renamed to "rtldr"; this is done to decrease the likelihood of rtldr interfering with other, already existing tldr installations. It also means, however, that you will have to use the command "rtldr" instead of "tldr" to run RubyTldr.
 
-The installer should take care of the majority of things, including the installation of the required gems (colorize and rubyzip); however, should rtldr complain about missing gems after running the installer, please refer to the Troubleshooting section down below.
+The installer should take care of the majority of things, including the installation of the required gems (colorize and rubyzip) and the creation of a symlink in the /bin folder (so that you can access rtldr from anywhere, not just from the downloaded directory); however, should rtldr complain about missing gems after running the installer (or not run at all), please refer to the Troubleshooting section down below.
 
 __NOTE__: The installer requires you to have both `git` and `wget` installed on your system; it was tested on both Zsh and Bash, but should, in theory, be compatible with the majority of shells. Should you find that your shell breaks the installation, please file an issue on this project's Gitlab repository. Please refer to your distribution's documentation / manual in order to find out how to install both git and wget (a large amount of distrubitions have these two pre-installed).
 
@@ -70,6 +70,9 @@ The main culprit for this will be that you are using the wrong operating system.
 
 #### Gems not installed
 RubyTldr relies on two extensions of the Ruby programming language, so-called gems. These gems are `colorize` and `rubyzip`. `colorize` will format the output and colorize it so that it looks more appealing and `rubyzip` will extract the .zip file that contains the pages. You need to have both of these gems installed for the program to run. Generally, the program checks if the needed gems are installed on your system and install them if needed. However, that might fail. In that case, please try and install the gems manually. Ruby gems are generally installed by either typing `gem install gem_name` or `sudo gem install gem_name`.
+
+#### Symlink not set correctly
+It is possible that the symlink could not be created successfully. You can check by running the command `whereis rtldr` or by simply searching the /bin directory with `find /bin/* -name rtldr`; this should show you the location of the executable rtldr symlink. If nothing was found, please create a symlink manually by typing `sudo ln -s ~/.rtldr/tldr /bin/rtldr`.
 
 ## TODO
 Please refer to the TODO.md document located in this repository for an always updated TODO-list. However, there are still a few things in general that I need to restructure and improve, most of which won't directly impact the user experience. One important feature that I haven't added yet is being able to look at the tldr pages of a specific operating system which is available on the original tldr-pages project. Also, I often add `#TODO` comments to my code, so you might find more information in the source code as well.
