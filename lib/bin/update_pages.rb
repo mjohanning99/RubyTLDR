@@ -12,7 +12,7 @@ def update_pages()
     exit
   end
 
-  puts "Connection has been established. Pages are being updated, please wait ..."
+  puts "Connection has been established. Checking if #{ARGV[0]} is available."
 
   #Downloading index.json from tldr.sh and checking if the entered command exists
   File.open("#{@parent_directory}/index.json", "wb") do |saved_file|
@@ -22,6 +22,7 @@ def update_pages()
   end
   index = File.read("#{@parent_directory}/index.json")
   if index.include?(ARGV[0]) then
+    puts "#{ARGV[0]} has been found, now updating page cache. Please wait ..."
     FileUtils.rm_rf("#{@parent_directory}/pages")
     File.open("#{@parent_directory}/pages.zip", "wb") do |saved_file|
       URI.open("https://tldr.sh/assets/tldr.zip", "r") do |read_file|

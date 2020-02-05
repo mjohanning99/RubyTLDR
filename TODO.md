@@ -25,3 +25,6 @@ For an always up-to-date ToDo-list, please refer to this document
 
 - [ ] [still needs work] Add support for searching the commands of other operating systems (using an *--operating system* and *-os* flag) [Implemented in a different way. All commands for all operating systems are available without the need of adding an additional flag. The corresponding OS is listed at the top... still needs work, usage of -os flag might be better since there are several of the same commands for each operating system)
 
+- [ ] The program thinks a page is available in the downloaded .json file even if it isn't -> do not use .include?(), but something more accurate.
+
+- [ ] Fix "No such file or directory @ dir_initialize - /home/numitr0n/Documents/Programming/RubyTLDR/lib/pages/linux (Errno::ENOENT)" when no `pages` directory could be found -> Automatically check, inform the user and download the latest pages if that is the case.
