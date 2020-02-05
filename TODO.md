@@ -19,6 +19,10 @@ For an always up-to-date To-Do-list, please refer to this document.
 
 - [x] Fix "No such file or directory @ dir_initialize - /home/numitr0n/Documents/Programming/RubyTLDR/lib/pages/linux (Errno::ENOENT)" when no `pages` directory could be found -> Automatically check, inform the user and download the latest pages if that is the case.
 
+- [x] Create two installers, one offline and one online. (Implemented differently; the one installer can determine whether or not files need to be downloaded).
+
+- [x] The program thinks a page is available in the downloaded .json file even if it isn't -> do not use .include?(), but something more accurate.
+
 ## Items not yet finished / items being worked on ##
 
 - [ ] Create a more user-friendly installation script (and, most importantly, one that does not run the command `rm -rf`!).
@@ -27,11 +31,7 @@ For an always up-to-date To-Do-list, please refer to this document.
 
 - [ ] [still needs work] Add support for searching the commands of other operating systems (using an *--operating system* and *-os* flag) [Implemented in a different way. All commands for all operating systems are available without the need of adding an additional flag. The corresponding OS is listed at the top... still needs work, usage of -os flag might be better since there are several of the same commands for each operating system).
 
-- [ ] The program thinks a page is available in the downloaded .json file even if it isn't -> do not use .include?(), but something more accurate.
-
 - [ ] Add more verbose and colourful output (for things such as updating pages).
-
-- [ ] Create two installers, one offline and one online.
 
 - [ ] Create better Markdown parsing; perhaps a gem is available?
 

@@ -15,12 +15,14 @@ __NOTE__: The only operating system that is currently supported for installation
 
 I tried keeping the installation process as easy and accessible as possible. I am still new to shell scripting, so errors might occur when installing the program. If you encounter an error, please file an Issue on this Repository.
 
-### Automatic installation
+Also, please be aware that every installation method (except for, perhaps, the manual one) requires root access!
+
+### Automatic installation (online)
 __WARNING__: When you install RubyTldr using one of my installers, please be aware that it might potentially break other "tldr" installations you have installed on your computer. The installer will add a symlink of the "tldr" file to your computer's /bin folder and the symlink will be renamed to "rtldr"; this is done to decrease the likelihood of rtldr interfering with other, already existing tldr installations. It also means, however, that you will have to use the command "rtldr" instead of "tldr" to run RubyTldr.
 
 The installer should take care of the majority of things, including the installation of the required gems (colorize and rubyzip) and the creation of a symlink in the /bin folder (so that you can access rtldr from anywhere, not just from the downloaded directory); however, should rtldr complain about missing gems after running the installer (or not run at all), please refer to the Troubleshooting section down below.
 
-__NOTE__: The installer requires you to have both `git` and `wget` installed on your system; it was tested on both Zsh and Bash, but should, in theory, be compatible with the majority of shells. Should you find that your shell breaks the installation, please file an issue on this project's Gitlab repository. Please refer to your distribution's documentation / manual in order to find out how to install both git and wget (a large amount of distrubitions have these two pre-installed).
+__NOTE__: The installer requires you to have both `git` and `wget` installed on your system; it was tested on both Zsh and Bash, but should, in theory, be compatible with the majority of shells. Should you find that your shell breaks the installation, please file an issue on this project's Gitlab repository. Please refer to your distribution's documentation / manual in order to find out how to install both git and wget (a large amount of distrubitions have these two pre-installed). If you do not have either of these installed and are not willing to do so, please read the section on the automatic offline installation down below.
 
 To install RubyTldr you can simply run the following command:
 
@@ -30,10 +32,16 @@ Should you want to inspect the source code of the downloader before running it, 
 
 [Installer](https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh)
 
-You can also simply download the `installer.sh` file from the repository and run it yourself.
+### Automatic installation (offline)
+If you wish, you are also able to download the repository — which is usually done in the form of a .zip archive —, extract it, enter the folder and run the `installer.sh` file. This is a good option if you wish to install RubyTldr on a machine that does not have `git` and `wget` installed. The installer will recognise that you have the required files on your machine and will not try to download them using `git`. 
+Running the installer is very simple; you merely need to open a terminal window, move into the directory that was extracted (usually called "RubyTldr") using `cd` (`cd RubyTldr`) and run either `bash installer.sh` or `./installer.sh`. On some GNU/Linux distributions it may also be possible to simply double-click the installer.
+If the machine you are trying to install RubyTldr onto does not have any access to the Internet whatsoever, you will also need to download a copy of the original tldr pages. To do so, first install RubyTldr as described above, then download a copy of the pages by clicking the following link: https://tldr.sh/assets/tldr.zip. The contents of the .zip file have to be extracted into the lib/ folder of your RubyTldr installation, which can be found at `~/.rtldr` (Thus, the directory you will need to put the contents of the .zip file into will be `~/.rtldr/lib`). If you are using a graphical file manager instead of the terminal, you may have to enable it to display hidden directories (directories beginning with a full-stop are hidden by default). This can be enable by pressing `CTRL+H` on a large amount of file managers; however, should this not work, please check the documentation of your file manager to find out how to enable it to display hidden files and directories.
 
-### Manual installation
+### Manual installation (online)
 If you do not want to download any of my installers because you don't trust them or you simply want to download it yourself, you can do so very easily. Simply download this repository (there's a green button at the top that allows you to do so) and extract it. When you open the folder you extracted it into, you will see the same files as on this repository. If you want to start RubyTldr, you will need to open the file named "tldr" (with no file ending), comment the line saying you want to load RubyTldr from the .rtldr folder and uncomment the line saying that you want to load from the local folder. You can then simply run RubyTldr by typing ./tldr when inside the same directory.
+
+### Manual installation (offline)
+As described in the section on the automatic installation, you will need to download a copy of the original tldr pages if the machine you are installing RubyTldr does not have any Internet access. Unlike the automatic installation, however, you will need to extract them into the downloaded folder's lib directory and not into ~/.rtldr/lib.
 
 ## Usage
 ### Preamble
