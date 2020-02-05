@@ -8,6 +8,7 @@ end
 
 #Gems and other extensions
 require 'fileutils' #Utilities for handling removing, moving (etc.) files
+require 'json' #JSON parsing
 require 'optparse' #Easy creation of an option parser
 require 'open-uri' #For downloading
 require 'socket' #For checking internet connection (pinging)

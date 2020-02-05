@@ -20,8 +20,20 @@ def update_pages()
       saved_file.write(read_file.read)
     end
   end
+
   index = File.read("#{@parent_directory}/index.json")
-  if index.include?(ARGV[0]) then
+  index_parsed = JSON.parse(index)
+
+  index_parsed["commands"].each do |name|
+    if name["name"].to_s.chomp == ARGV[0].downcase.chomp then
+      @found = true
+      break
+    else
+      @found = false
+    end
+  end
+
+  if @found == true then
     puts "#{ARGV[0]} has been found, now updating page cache. Please wait ..."
     FileUtils.rm_rf("#{@parent_directory}/pages")
     File.open("#{@parent_directory}/pages.zip", "wb") do |saved_file|
@@ -37,7 +49,6 @@ def update_pages()
     exit
   end
 end
-
 def update_pages_opt(parent_directory)
   puts "Checking connection to https://tldr.sh ..."
   #Check for internet connection (and connection to tldr.sh for assets)
