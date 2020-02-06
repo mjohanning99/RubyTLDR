@@ -51,6 +51,7 @@ require_relative 'run.rb'
 require_relative 'parse_md.rb'
 require_relative 'operating_system.rb'
 require_relative 'extract_zip.rb'
+require_relative 'language.rb'
 
 #Option Parser
 require_relative 'option_parser.rb'
