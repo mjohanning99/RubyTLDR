@@ -38,7 +38,7 @@ def run()
   when "sunos"
     parse_md(@sunos, page)
   when "nil"
-    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)" unless $optparse
+    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
   else
     puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
     puts "We are now updating the page cache, please wait"
