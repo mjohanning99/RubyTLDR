@@ -51,12 +51,14 @@ require_relative 'run.rb'
 require_relative 'parse_md.rb'
 require_relative 'operating_system.rb'
 require_relative 'extract_zip.rb'
+require_relative 'formatting.rb'
 
 #Option Parser
 require_relative 'option_parser.rb'
 
 #Predefined variables
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
+@clear_screen = "\e[H\e[2J"
 
 #Pages
 @linux = "#{@parent_directory}/pages/linux"
@@ -67,6 +69,7 @@ require_relative 'option_parser.rb'
 
 #Running the actual program
 begin
+  print @clear_screen
   run()
 rescue Errno::ENOENT
   puts "ERROR!".colorize(:background => :red) + " RubyTldr was unable to find any pages on your machine. This is normal if you have just installed it. RubyTldr will now try to download the pages, please wait ..."

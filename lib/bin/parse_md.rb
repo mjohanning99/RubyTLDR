@@ -22,9 +22,9 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 def parse_md(directory, page)
   puts "#{operating_system.upcase}".colorize(:background => :red) unless operating_system == "common"
   File.open("#{directory}/#{page}").each_line do |line|
-    puts line.gsub(/#/, "---->").colorize(:color => :black, :background => :red) if /^#/ =~ line
-    puts line.colorize(:yellow) if /^>/ =~ line
+    print line.gsub(/#/, "").colorize(:background => :red, :color => :black) if /^#/ =~ line
+    print line.colorize(:yellow) if /^>/ =~ line
     puts line.gsub(/\n/, "").colorize(:green) if /^-/ =~ line
-    puts line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
+    print "  " + line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
   end
 end

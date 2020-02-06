@@ -30,7 +30,7 @@ def update_pages()
     exit
   end
 
-  puts "SUCCESS!".colorize(:background => :green) + " Connection has been established. Checking if '#{ARGV[0]}' is available."
+  puts "SUCCESS!".colorize(:background => :green, :color => :black) + " Connection has been established. Checking if '#{ARGV[0]}' is available."
 
   #Downloading index.json from tldr.sh and checking if the entered command exists
   File.open("#{@parent_directory}/index.json", "wb") do |saved_file|
@@ -84,7 +84,7 @@ def update_pages_opt(parent_directory)
     exit
   end
 
-  puts "SUCCESS!".colorize(:background => :green) + " Connection has been established. Pages are being updated, please wait ..."
+  puts "SUCCESS!".colorize(:background => :green, :color => :black) + " Connection has been established. Pages are being updated, please wait ..."
 
   FileUtils.rm_rf("#{parent_directory}/pages")
   File.open("#{parent_directory}/pages.zip", "wb") do |saved_file|
@@ -94,7 +94,7 @@ def update_pages_opt(parent_directory)
   end
   extract_zip("#{parent_directory}/pages.zip", "#{parent_directory}")
   FileUtils.rm("#{parent_directory}/pages.zip")
-  FileUtils.rm("#{@parent_directory}/index.json")
+  FileUtils.rm("#{parent_directory}/index.json")
 
-  puts "SUCCESS!".colorize(:background => :green) + " Pages have sucessfully been updated."
+  puts "SUCCESS!".colorize(:background => :green, :color => :black) + " Pages have sucessfully been updated."
 end

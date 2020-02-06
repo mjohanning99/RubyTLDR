@@ -38,6 +38,6 @@ def run()
     puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
     puts "We are now updating the page cache, please wait"
     update_pages()
-    puts "SUCCESS!".colorize(:background => :green) + " The page cache has been updated successfully."
+    puts "SUCCESS!".colorize(:background => :green, :color => :black) + " The page cache has been updated successfully."
   end
 end
