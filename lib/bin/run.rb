@@ -20,7 +20,7 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 
 #Checking if the page exists, parsing it using parse_md and downloading it if necessary
 def run()
-  page = "#{ARGV[0]}.md"
+  page = "#{ARGV[0].downcase}.md"
   case operating_system()
   when "linux"
     parse_md(@linux, page)

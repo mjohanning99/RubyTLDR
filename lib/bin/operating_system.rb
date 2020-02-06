@@ -20,10 +20,10 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 
 #Checks where the page exists in the page folders (and returns the operating system of the corresponding page)
 def operating_system()
-  return "linux" if Dir.entries(@linux).include?("#{ARGV[0]}.md")
-  return "common" if Dir.entries(@common).include?("#{ARGV[0]}.md")
-  return "windows" if Dir.entries(@windows).include?("#{ARGV[0]}.md")
-  return "osx" if Dir.entries(@osx).include?("#{ARGV[0]}.md")
-  return "sunos" if Dir.entries(@sunos).include?("#{ARGV[0]}.md")
+  return "linux" if Dir.entries(@linux).include?("#{ARGV[0].downcase}.md")
+  return "common" if Dir.entries(@common).include?("#{ARGV[0].downcase}.md")
+  return "windows" if Dir.entries(@windows).include?("#{ARGV[0].downcase}.md")
+  return "osx" if Dir.entries(@osx).include?("#{ARGV[0].downcase}.md")
+  return "sunos" if Dir.entries(@sunos).include?("#{ARGV[0].downcase}.md")
   return "nil" if ARGV[0].class == NilClass
 end
