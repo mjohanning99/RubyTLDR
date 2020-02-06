@@ -18,10 +18,13 @@ You should have received a copy of the GNU General Public License
 along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
-#Checks where the page exists in the page folders (and returns the operating system of the corresponding page)
 
 def list_languages()
-  return Dir.entries(File.expand_path('..', File.dirname(__FILE__))).to_s.scan(/pages\.\w+/).map {|s| s.gsub("pages.", "")}
-end
+  @language_list = String.new
+  entries = Dir.entries(File.expand_path('..', File.dirname(__FILE__))).to_s.scan(/pages\.\w+/).map {|s| s.gsub("pages.", "")}
 
-puts list_languages()
+  entries.each do |entry|
+    @language_list += entry + " "
+  end
+  return @language_list
+end
