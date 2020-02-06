@@ -23,7 +23,7 @@ def run()
   begin
     page = "#{ARGV[0].downcase}.md"
   rescue NoMethodError
-    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)" unless $optparse
+    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
     exit
   end
   case operating_system()
