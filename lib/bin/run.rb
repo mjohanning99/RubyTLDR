@@ -20,7 +20,12 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 
 #Checking if the page exists, parsing it using parse_md and downloading it if necessary
 def run()
-  page = "#{ARGV[0].downcase}.md"
+  begin
+    page = "#{ARGV[0].downcase}.md"
+  rescue NoMethodError
+    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)" unless $optparse
+    exit
+  end
   case operating_system()
   when "linux"
     parse_md(@linux, page)
