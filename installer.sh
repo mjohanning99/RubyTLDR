@@ -52,7 +52,7 @@ if [ -L /bin/rtldr ]
 then
     echo "It seems like this program has already been installed previously, since there already exists a symlink called 'rtldr' within the /bin folder. It is recommended to delete this file as it may point to an incorrect location and could thus potentially destroy your rtldr installation."
 
-    echo "Would you like for the installer to delete the symbolic link? [1 = Yes, 2 = No]"
+    echo "Would you like the installer to delete the symbolic link? [1 = Yes, 2 = No]"
     select yn in "Yes" "No"; do
         case $yn in
             Yes ) sudo rm /bin/rtldr; break;;
