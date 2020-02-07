@@ -1,15 +1,36 @@
 ##!/bin/bash
 
+#Method for catching errors
+error_catch() {
+  echo "$1" 1>&2
+  exit 1
+}
+
+#Variable that stores the ruby version installed on the computer
 ruby_version=$(ruby -v)
-if [[ $ruby_version == *ruby* ]]; then echo "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ..."; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby using your distribution's package manager or by compiling it from source"; exit; fi
+
+if [[ $ruby_version == *ruby* ]]; then printf "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ... \n\n"; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby using your distribution's package manager or by compiling it from source"; exit; fi
 
 if [ -e ~/.rtldr ]; then echo "The program seems to have already been installed since the ~/.rtldr directory already exists. In that case, please use the command 'updatetldr'" && exit; else echo "Installation starting."; fi
 
-if [ -e tldr ]
+if [[ -e tldr && -e lib/bin/tldr.rb ]]
 then
-    echo "You seem to have already downloaded the needed files, skipping download and using the files in the current directory"
-    mkdir ~/.rtldr
-    cp -r . ~/.rtldr
+    echo "You seem to have already downloaded the entire repository. Skipping the download ..."
+    echo "Creating ~/.rtldr ..."
+    if mkdir ~/.rtldr; then
+      echo "Creating ~/.rtldr was successful."
+    else
+      echo "Could not create ~/.rtldr! Aborting!"
+    fi
+
+    echo "Coyping contents of $(pwd) into ~/.rtldr ..."
+    if cp -r . ~/.rtldr; then
+      echo "Copying successful."
+    else
+      echo "Could not copy contents from $(pwd) to ~/.rtldr! Aborting!"
+    fi
+
+    printf "\n"
 
     if [ -L /bin/rtldr ]
     then
