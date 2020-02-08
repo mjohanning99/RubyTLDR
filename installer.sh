@@ -10,8 +10,7 @@ error_catch() {
 ruby_version=$(ruby -v)
 
 #Informing the user about their current Ruby installation / Informing them of a missing Ruby installation and exiting the installer.
-if [[ $ruby_version == *ruby* ]]; then printf "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ... \n\n"; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby usin
-g your distribution's package manager or by compiling it from source"; exit; fi
+if [[ $ruby_version == *ruby* ]]; then printf "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ... \n\n"; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby using your distribution's package manager or by compiling it from source"; exit; fi
 
 #Check if the default installation directory (~/.rtldr) already exists, inform the user and give them the choice of having it deleted.
 if [ -e ~/.rtldr ]
