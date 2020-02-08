@@ -132,7 +132,7 @@ if [[ `gem list` != *rubyzip* ]]; then
     case $input in
       [yY][eE][sS]|[yY])
         echo "Installing 'rubyzip' gem ..."
-        if gem install colorize; then
+        if gem install rubyzip; then
           echo "Successfully installed 'rubyzip' gem."
         else
           error_catch "Unable to install the gem, aborting!"
