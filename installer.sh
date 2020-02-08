@@ -13,8 +13,7 @@ ruby_version=$(ruby -v)
 if [[ $ruby_version == *ruby* ]]; then printf "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ... \n\n"; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby using your distribution's package manager or by compiling it from source"; exit; fi
 
 #Check if the default installation directory (~/.rtldr) already exists, inform the user and give them the choice of having it deleted.
-if [ -e ~/.rtldr ]
-then
+if [ -e ~/.rtldr ]; then
   printf "The program seems to have already been installed previously, since the ~/.rtldr folder already exists? Do you wish to remove the folder and replace the old RubyTldr version with the one you have just downloaded?"
 
   while true; do
@@ -150,8 +149,7 @@ if [[ `gem list` != *rubyzip* ]]; then
   printf "\n"
 fi
 
-if [[ ! -e tldr && ! -e lib/bin/tldr.rb ]]
-then
+if [[ ! -e tldr && ! -e lib/bin/tldr.rb ]]; then
   echo "Cloning from repository starting."
   git clone https://gitlab.com/mjohanning/RubyTldr.git ~/.rtldr
 
