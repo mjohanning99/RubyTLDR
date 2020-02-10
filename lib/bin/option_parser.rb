@@ -21,7 +21,7 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 #The option parser that parses the "--help", "--list" and "--update" options, most of which don't work anymore after the restructuring.
 
 #Require update_pages.rb so that --update can be used
-require_relative 'update_pages.rb'
+#require_relative 'update_pages.rb'
 
 parent_directory = File.expand_path('..', File.dirname(__FILE__))
 OptionParser.new do |opt|

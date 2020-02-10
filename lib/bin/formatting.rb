@@ -19,6 +19,7 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
 #This is used to format the output and should eventually replace the colorize gem if possible.
+#TODO: Add colour codes
 
 class String
   def bold;           "\e[1m#{self}\e[22m" end
