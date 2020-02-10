@@ -26,9 +26,10 @@ require_relative 'update_pages.rb'
 parent_directory = File.expand_path('..', File.dirname(__FILE__))
 OptionParser.new do |opt|
 
-  opt.banner = "Usage: rtldr [options]\n"\
-    "RubyTldr (rtldr) is a program that will show you man-pages that have been condensed into the most important information and are thus much easier to read and comprehend.\n" \
-    "If you wish to see the tldr-page of a particular command / program, simply write 'rtldr' followed by the command you wish to see the tldr-page of (for example, 'rtldr tar')"
+  opt.banner =
+    "Usage: ".bold() + "rtldr".underline() + " [options]" + "\n"\
+    "RubyTldr (rtldr) is a program that will show you man-pages that have been condensed down to the most important information and are thus much easier to read and comprehend.\n" \
+    "If you wish to see the tldr-page of a particular command / program, simply write 'rtldr' followed by the command you wish to see the tldr-page of (for example, " + "rtldr tar".bold() + ")"
 
   opt.on("--help", "-h", "Prints this help") do
     puts opt
