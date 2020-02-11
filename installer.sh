@@ -1,4 +1,5 @@
 ##!/bin/bash
+#TODO: Change output for -q flag (text very crammed)
 
 #Method for catching errors
 error_catch() {

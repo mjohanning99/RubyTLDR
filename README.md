@@ -38,6 +38,8 @@ The installer should take care of the majority of things, including the installa
 
 __NOTE__: The installer requires you to have both `git` and `wget` installed on your system; it was tested on both Zsh and Bash, but should, in theory, be compatible with the majority of shells. Should you find that your shell breaks the installation, please file an issue on this project's Gitlab repository. Please refer to your distribution's documentation / manual in order to find out how to install both git and wget (a large amount of distrubitions have these two pre-installed). If you do not have either of these installed and are not willing to do so, please read the section on the automatic offline installation down below.
 
+__NOTE__: There is an optional flag `-q` (`./installer.sh -q`) that can be used if you wish to skip the questions and answer everything the installer thinks is necessary with 'yes' by default. I would generally not recommend this, but is it rather handy, I believe, for when you wish to upgrade to a newer version and already know what the installer is going to be doing.
+
 ### Online
 To install RubyTldr on a machine that has an active Internet connection, you can simply run the following command:
 
