@@ -19,7 +19,7 @@ __NOTE__: The only operating system that is currently supported for installation
 
 #### Root access
 First and foremost, installing RubyTldr or any of its prerequisites virtually always requires you to have root access. This means that you need to either ask your administrator for a root password or ask them to install it for you instead if you do not have root access on your machine.
-If you own your computer yourself (and are not using a public PC or sharing it with others), you will most likely have root acccess; in that case, just have your password ready, as you will need to enter it at various stages of installing RubyTldr and its prerequisites.
+If you own your computer yourself (and are not using a public computer — such as at school or at the library — or sharing it with others in the same household), you will most likely have root acccess; in that case, just have your password ready, as you will need to enter it at various stages of installing RubyTldr and its prerequisites.
 
 #### Ruby version
 The most important prerequisite for installing RubyTldr is, obviously, a working Ruby installation. I am using Ruby 2.7.0, so it's only officially supported on that version. However, I am quite certain it will work on older or newer versions of Ruby as well. I also recommend using [rvm](https://rvm.io) for managing different Ruby installations. Please refer to your distribution's documentation / manual on how to install packages and check [Ruby's official](https://www.ruby-lang.org/en/downloads/) website on how to install it on a variety of different GNU/Linux distributions. It is generally an easy and fast process.
@@ -28,7 +28,7 @@ The most important prerequisite for installing RubyTldr is, obviously, a working
 The required Ruby gems (`colorize` and `rubyzip`) should be installed automatically when using one of my installers. When installing manually or when encountering errors (RubyTldr complaining about missing gems), please refer to the Troubleshooting section at the bottom of this README.
 
 ### Automatic installation
-The easiest way of installing RubyTldr is to simply use one of my installers. You can either download the `ìnstaller.sh` file and let it handle everything or clone the repository and download the pages yourself for installing it on a machine with no internet access.
+The easiest way of installing RubyTldr is to simply use one of my installers. You can either download the `installer.sh` file and let it handle everything or clone the repository and download the pages yourself for installing it on a machine with no internet access.
 
 I tried keeping the installation process as easy and accessible as possible. I am still new to shell scripting, so errors might occur when installing the program. If you encounter an error, please file an issue on this repository.
 
