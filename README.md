@@ -62,7 +62,7 @@ If you do not want to download any of my installers because you don't trust them
 You could also simply run the `tldr.rb` file located in the lib/bin/ directory by typing `./lib/bin/tldr.rb` or `ruby lib/bin/tldr.rb` whilst inside the downloaded directory.
 
 #### Offline
-As described in the section on the automatic installation, you will need to download a copy of the original tldr pages if the machine you are installing RubyTldr onto does not have any Internet access. Unlike the automatic installation, however, you will need to extract them into the downloaded folder's lib directory and not into ~/.rtldr/lib.
+As described in the section on the automatic installation, you will need to download a copy of the original tldr pages if the machine you are installing RubyTldr onto does not have any Internet access. Unlike the automatic installation, however, you will need to extract them into the downloaded folder's lib directory and not into `~/.rtldr/lib`.
 
 ### Updating to a new version
 Frequently, a new version of RubyTldr is released and should you wish to update to this new version, you can do so with ease using the installer. You simply have to run the installer once a new version has been released, and it will automatically detect a previously installed RubyTldr version, inform you of its existence and give you the option to replace it.
@@ -110,9 +110,6 @@ It is possible that the symlink could not be created successfully. You can check
 
 #### Wrong Ruby version
 As stated further at the top of this README, the only supported Ruby version is the one I am currently using (as that is the only one I will be doing extensive testing on). While I believe that the majority of Ruby versions should be compatible with it, this is not absolutely certain. Older versions of Ruby may have trouble with the current gem versions or certain native Ruby commands. I would always recommend installing the latest version of Ruby unless you have a good reason not to, as newer versions also frequently fix a lot of security issues. Should you require an older Ruby version, you can use the aforementioned rvm (Ruby Version Manager) to manage several Ruby installations.
-
-## TODO
-Please refer to the TODO.md document located in this repository for an always updated TODO-list. However, there are still a few things in general that I need to restructure and improve, most of which won't directly impact the user experience. One important feature that I haven't added yet is being able to look at the tldr pages of a specific operating system which is available on the original tldr-pages project. Also, I often add `#TODO` comments to my code, so you might find more information in the source code as well.
 
 ## Contributing
 I welcome all contributions, be it actual code contributions, bug reports etc. If you want to make your own version of this program, you are free to do so. It is licensed under the GNU General Public License Version 3 (GPLv3). It's one of the most popular free software license and it allows the users to do virtually anything with the software. But before you do, and you wish to know exactly what you are and aren't allowed to do, please refer to the LICENSE document in this repository.
