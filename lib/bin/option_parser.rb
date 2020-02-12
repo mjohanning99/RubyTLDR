@@ -18,16 +18,14 @@ You should have received a copy of the GNU General Public License
 along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
-#Require update_pages.rb so that --update can be used
-#require_relative 'update_pages.rb'
-
 parent_directory = File.expand_path('..', File.dirname(__FILE__))
 OptionParser.new do |opt|
 
   #The default 'banner' that gets displayed when running rtldr --help
   opt.banner =
     "RubyTldr".bold() + " (rtldr) is a program that will show you man-pages that have been condensed down to the most important information and are thus much easier to read and comprehend.\n" \
-    "If you wish to see the tldr-page of a particular command / program, simply write 'rtldr' followed by the command you wish to see the tldr-page of (for example, " + "rtldr tar".bold() + ").\n\n" \
+    "If you wish to see the tldr-page of a particular command / program, simply write 'rtldr' followed by the command you wish to see the tldr-page of (for example, " + "rtldr tar".bold() + ").\n" \
+    "The text displayed inbetween <> is to be replaced by you according your specific needs; you may have to enter specific file name, such as in the following example: " + "'tar cf <target.tar>'".bold() + " wherein you will need to replace the " + "'<target.tar>'".bold() + " with your specific tar file (" + "tar cf my_archive.tar".bold() + ") for example.\n\n"
     "Usage: ".bold() + "rtldr".underline() + " [options]" + "\n"
 
   #Printing the help information of every command
