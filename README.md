@@ -62,7 +62,7 @@ If you do not want to download any of my installers because you don't trust them
 You could also simply run the `tldr.rb` file located in the lib/bin/ directory by typing `./lib/bin/tldr.rb` or `ruby lib/bin/tldr.rb` whilst inside the downloaded directory.
 
 #### Offline
-As described in the section on the automatic installation, you will need to download a copy of the original tldr pages if the machine you are installing RubyTldr onto does not have any Internet access. Unlike the automatic installation, however, you will need to extract them into the downloaded folder's lib directory and not into `~/.rtldr/lib`.
+As described in the section on the automatic installation, you will need to download a copy of the original tldr pages if the machine you are installing RubyTldr onto does not have any Internet access. Unlike the automatic installation, however, you will need to extract them into the downloaded folder's `lib` directory (such as `~/Downloads/RubyTldr/lib`) and not into `~/.rtldr/lib`.
 
 ### Updating to a new version
 Frequently, a new version of RubyTldr is released and should you wish to update to this new version, you can do so with ease using the installer. You simply have to run the installer once a new version has been released, and it will automatically detect a previously installed RubyTldr version, inform you of its existence and give you the option to replace it.
