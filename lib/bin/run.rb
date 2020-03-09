@@ -18,13 +18,15 @@ You should have received a copy of the GNU General Public License
 along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
-#Checking if the page exists, parsing it using parse_md and downloading it if necessary
+#Variables
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
 @linux = "#{@parent_directory}/pages/linux"
 @common = "#{@parent_directory}/pages/common"
 @windows = "#{@parent_directory}/pages/windows"
 @sunos = "#{@parent_directory}/pages/sunos"
 @osx = "#{@parent_directory}/pages/osx"
+
+#Checking if the page exists, parsing it using parse_md and downloading it if necessary
 def run()
   begin
     page = "#{ARGV[0].downcase}.md"

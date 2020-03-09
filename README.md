@@ -86,6 +86,7 @@ The words displayed in `<>` are to be replaced by the user according to their ne
 
 ### Tldr pages for other operating systems
 You are able to access all the tldr pages from whatever operating system. The operating system the command is intended to be used on is the first thing on the Tldr page, written in all capital letters.
+RubyTLDR will automatically jump to a different operating system if the command entered could not be found on the operating system you are currently using (which, for the most part, will probably be GNU/Linux). If you instead wish to show you the information of a command available on several operating systems (such as `mkdir`) on one specific OS, you can specify the platform with the `--platform` or `-p` flag as follows: `rtldr --platform windows mkdir`; this will show you the `mkdir` information specifically for Windows.
 
 ### New tldr pages
 The original tldr project is alive and well. New pages are being added regularly and old ones are being updated. In order to keep up with all the changes, I implemented a feature that will automatically try to download commands that weren't found on your machine. If it is able to find the corresponding tldr-page on the official Gitlab Repository, it will download it and you will be able to use it locally as well.
