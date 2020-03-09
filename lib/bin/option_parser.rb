@@ -19,6 +19,7 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
 parent_directory = File.expand_path('..', File.dirname(__FILE__))
+require_relative 'run.rb'
 OptionParser.new do |opt|
 
   #The default 'banner' that gets displayed when running rtldr --help
@@ -31,6 +32,16 @@ OptionParser.new do |opt|
   #Printing the help information of every command
   opt.on("--help", "-h", "Prints this help") do
     puts opt
+    exit
+  end
+
+  opt.on("--version", "-v", "Shows the currently installed RubyTLDR version") do
+    puts "Installed version: " + "2.1.0"
+    exit
+  end
+
+  opt.on("--platform", "-p", "Specifies the platform whose pages should be displayed") do
+    run_os(ARGV[0].to_s)
     exit
   end
 

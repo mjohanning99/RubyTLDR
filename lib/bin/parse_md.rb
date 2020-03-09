@@ -19,12 +19,23 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
 #Parse given markdown file
-def parse_md(directory, page)
-  puts "#{operating_system.upcase}".colorize(:background => :red) unless operating_system == "common"
-  File.open("#{directory}/#{page}").each_line do |line|
-    print line.gsub(/#/, "").colorize(:background => :red, :color => :black) if /^#/ =~ line
-    print line.colorize(:yellow) if /^>/ =~ line
-    puts line.gsub(/\n/, "").colorize(:green) if /^-/ =~ line
-    print "  " + line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
+def parse_md(directory, page, manual)
+  unless manual == true
+    puts "#{operating_system.upcase}".colorize(:background => :red) unless operating_system == "common"
+    File.open("#{directory}/#{page}").each_line do |line|
+      print line.gsub(/#/, "").colorize(:background => :red, :color => :black) if /^#/ =~ line
+      print line.colorize(:yellow) if /^>/ =~ line
+      puts line.gsub(/\n/, "").colorize(:green) if /^-/ =~ line
+      print "  " + line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
+    end
+  else
+    puts "#{ARGV[1].upcase}".colorize(:background => :red) unless ARGV[1] == "common"
+    File.open("#{directory}/#{page}").each_line do |line|
+      print line.gsub(/#/, "").colorize(:background => :red, :color => :black) if /^#/ =~ line
+      print line.colorize(:yellow) if /^>/ =~ line
+      puts line.gsub(/\n/, "").colorize(:green) if /^-/ =~ line
+      print "  " + line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
+    end
   end
 end
+

@@ -19,6 +19,12 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
 #Checking if the page exists, parsing it using parse_md and downloading it if necessary
+@parent_directory = File.expand_path('..', File.dirname(__FILE__))
+@linux = "#{@parent_directory}/pages/linux"
+@common = "#{@parent_directory}/pages/common"
+@windows = "#{@parent_directory}/pages/windows"
+@sunos = "#{@parent_directory}/pages/sunos"
+@osx = "#{@parent_directory}/pages/osx"
 def run()
   begin
     page = "#{ARGV[0].downcase}.md"
@@ -28,15 +34,44 @@ def run()
   end
   case operating_system()
   when "linux"
-    parse_md(@linux, page)
+    parse_md(@linux, page, false)
   when "common"
-    parse_md(@common, page)
+    parse_md(@common, page, false)
   when "windows"
-    parse_md(@windows, page)
+    parse_md(@windows, page, false)
   when "osx"
-    parse_md(@osx, page)
+    parse_md(@osx, page, false)
   when "sunos"
-    parse_md(@sunos, page)
+    parse_md(@sunos, page, false)
+  when "nil"
+    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+  else
+    puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
+    puts "We are now updating the page cache, please wait"
+    update_pages()
+    puts "SUCCESS!".colorize(:background => :green, :color => :black) + " The page cache has been updated successfully."
+  end
+end
+
+def run_os(os)
+  begin
+    page = "#{ARGV[1].downcase}.md"
+  rescue NoMethodError
+    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+    exit
+  end
+
+  case os
+  when "linux"
+    parse_md(@linux, page, true)
+  when "common"
+    parse_md(@common, page, true)
+  when "windows"
+    parse_md(@windows, page, true)
+  when "osx"
+    parse_md(@osx, page, true)
+  when "sunos"
+    parse_md(@sunos, page, true)
   when "nil"
     puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
   else

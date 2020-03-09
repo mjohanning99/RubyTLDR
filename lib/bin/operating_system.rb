@@ -19,11 +19,21 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
 #Checks where the page exists in the page folders (and returns the operating system of the corresponding page)
+
 def operating_system()
-  return "linux" if Dir.entries(@linux).include?("#{ARGV[0].downcase}.md")
-  return "common" if Dir.entries(@common).include?("#{ARGV[0].downcase}.md")
-  return "windows" if Dir.entries(@windows).include?("#{ARGV[0].downcase}.md")
-  return "osx" if Dir.entries(@osx).include?("#{ARGV[0].downcase}.md")
-  return "sunos" if Dir.entries(@sunos).include?("#{ARGV[0].downcase}.md")
-  return "nil" if ARGV[0].class == NilClass
+    return "linux" if Dir.entries(@linux).include?("#{ARGV[0].downcase}.md")
+    return "common" if Dir.entries(@common).include?("#{ARGV[0].downcase}.md")
+    return "windows" if Dir.entries(@windows).include?("#{ARGV[0].downcase}.md")
+    return "osx" if Dir.entries(@osx).include?("#{ARGV[0].downcase}.md")
+    return "sunos" if Dir.entries(@sunos).include?("#{ARGV[0].downcase}.md")
+    return "nil" if ARGV[0].class == NilClass
+end
+
+def operating_system_manual()
+    return "linux" if Dir.entries(@linux).include?("#{ARGV[1].downcase}.md")
+    return "common" if Dir.entries(@common).include?("#{ARGV[1].downcase}.md")
+    return "windows" if Dir.entries(@windows).include?("#{ARGV[1].downcase}.md")
+    return "osx" if Dir.entries(@osx).include?("#{ARGV[1].downcase}.md")
+    return "sunos" if Dir.entries(@sunos).include?("#{ARGV[1].downcase}.md")
+    return "nil" if ARGV[1].class == NilClass
 end
