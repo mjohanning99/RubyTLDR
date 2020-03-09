@@ -63,15 +63,44 @@ def run_os(os)
 
   case os
   when "linux"
-    parse_md(@linux, page, true)
+    if File.exist?("#{@linux}/#{page}")
+      parse_md(@linux, page, true)
+    else
+      puts "Page could not be found in Linux."
+      exit
+    end
+
   when "common"
-    parse_md(@common, page, true)
+    if File.exist?("#{@common}/#{page}")
+      parse_md(@common, page, true)
+    else
+      puts "Page could not be found in Common."
+      exit
+    end
+
   when "windows"
-    parse_md(@windows, page, true)
+    if File.exist?("#{@windows}/#{page}")
+      parse_md(@windows, page, true)
+    else
+      puts "Page could not be found in Windows."
+      exit
+    end
+
   when "osx"
-    parse_md(@osx, page, true)
+    if File.exist?("#{@osx}/#{page}")
+      parse_md(@osx, page, true)
+    else
+      puts "Page could not be found in OSX."
+      exit
+    end
+
   when "sunos"
-    parse_md(@sunos, page, true)
+    if File.exist?("#{@sunos}/#{page}")
+      parse_md(@sunos, page, true)
+    else
+      puts "Page could not be found in SunOS."
+      exit
+    end
   when "nil"
     puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
   else

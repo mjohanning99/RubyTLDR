@@ -28,12 +28,3 @@ def operating_system()
     return "sunos" if Dir.entries(@sunos).include?("#{ARGV[0].downcase}.md")
     return "nil" if ARGV[0].class == NilClass
 end
-
-def operating_system_manual()
-    return "linux" if Dir.entries(@linux).include?("#{ARGV[1].downcase}.md")
-    return "common" if Dir.entries(@common).include?("#{ARGV[1].downcase}.md")
-    return "windows" if Dir.entries(@windows).include?("#{ARGV[1].downcase}.md")
-    return "osx" if Dir.entries(@osx).include?("#{ARGV[1].downcase}.md")
-    return "sunos" if Dir.entries(@sunos).include?("#{ARGV[1].downcase}.md")
-    return "nil" if ARGV[1].class == NilClass
-end
