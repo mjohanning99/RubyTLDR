@@ -27,7 +27,7 @@ if [[ -e ~/.rtldr ]]; then
 
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [Y/n] " input
+      read -r -p " [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
@@ -86,7 +86,7 @@ if [ -L /bin/rtldr ]; then
 
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [Y/n] " input
+      read -r -p " [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
@@ -122,7 +122,7 @@ if [[ `gem list` != *colorize* ]]; then
 
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [Y/n] " input
+      read -r -p " [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
@@ -159,7 +159,7 @@ if [[ `gem list` != *rubyzip* ]]; then
 
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [Y/n] " input
+      read -r -p " [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
