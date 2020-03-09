@@ -54,7 +54,13 @@ require_relative 'extract_zip.rb'
 require_relative 'formatting.rb'
 
 #Option Parser
-require_relative 'option_parser.rb'
+begin
+  require_relative 'option_parser.rb'
+rescue OptionParser::InvalidOption
+  puts "ERROR!".colorize(:background => :red) + " The flag you entered does not exist\n" \
+    "Try typing rtldr --help to get more information on how to use this program"
+  exit
+end
 
 #Predefined variables
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
