@@ -29,7 +29,7 @@ def parse_md(directory, page, manual)
       print "  " + line.gsub(/\{{2}/, "<").gsub(/\}{2}/, ">").gsub(/`/, "").colorize(:color => :black, :background => :blue) + "\n" if /^`/ =~ line
     end
   else
-    puts "#{ARGV[1].upcase}".colorize(:background => :red) unless ARGV[1] == "common"
+    puts "#{ARGV[0].upcase}".colorize(:background => :red) unless ARGV[1] == "common"
     File.open("#{directory}/#{page}").each_line do |line|
       print line.gsub(/#/, "").colorize(:background => :red, :color => :black) if /^#/ =~ line
       print line.colorize(:yellow) if /^>/ =~ line

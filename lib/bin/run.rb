@@ -68,7 +68,7 @@ def run_os(os)
     if File.exist?("#{@linux}/#{page}")
       parse_md(@linux, page, true)
     else
-      puts "Page could not be found in Linux."
+      puts "ERROR: ".colorize(:background => :red) + "Page could not be found in Linux."
       exit
     end
 
@@ -76,7 +76,7 @@ def run_os(os)
     if File.exist?("#{@common}/#{page}")
       parse_md(@common, page, true)
     else
-      puts "Page could not be found in Common."
+      puts "ERROR: ".colorize(:background => :red) + "Page could not be found in Common."
       exit
     end
 
@@ -84,7 +84,7 @@ def run_os(os)
     if File.exist?("#{@windows}/#{page}")
       parse_md(@windows, page, true)
     else
-      puts "Page could not be found in Windows."
+      puts "ERROR: ".colorize(:background => :red) + "Page could not be found in Windows."
       exit
     end
 
@@ -92,7 +92,7 @@ def run_os(os)
     if File.exist?("#{@osx}/#{page}")
       parse_md(@osx, page, true)
     else
-      puts "Page could not be found in OSX."
+      puts "ERROR: ".colorize(:background => :red) + "Page could not be found in OSX."
       exit
     end
 
@@ -100,7 +100,7 @@ def run_os(os)
     if File.exist?("#{@sunos}/#{page}")
       parse_md(@sunos, page, true)
     else
-      puts "Page could not be found in SunOS."
+      puts "ERROR: ".colorize(:background => :red) + "Page could not be found in SunOS."
       exit
     end
   when "nil"
