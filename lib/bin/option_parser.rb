@@ -19,7 +19,7 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
 parent_directory = File.expand_path('..', File.dirname(__FILE__))
-require_relative 'run.rb'
+
 OptionParser.new do |opt|
 
   #The default 'banner' that gets displayed when running rtldr --help
