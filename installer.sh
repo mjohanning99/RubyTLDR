@@ -205,7 +205,9 @@ if [ -L /bin/rtldr ]; then echo "Symlink exists, not creating a new one."; else 
 
 printf "\n"
 
-echo "Removing installer ..."
-sudo rm installer.sh
+if [[ -e installer.sh ]]; then
+	echo "Removing installer ..."
+	sudo rm installer.sh
+fi
 
 echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'rtldr tldr'. If you get an explanation of this program, then everything worked correctly."

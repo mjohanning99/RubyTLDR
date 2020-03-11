@@ -43,10 +43,13 @@ __NOTE__: There is an optional flag `-q` (`./installer.sh -q`) that can be used 
 ### Online
 To install RubyTldr on a machine that has an active Internet connection, you can simply run the following command:
 
-`wget https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh ; bash installer.sh`
+`sh -c "$(wget install-rtldr.marvinjohanning.de -O -)"`
 
 This command will download (using `wget`) the `installer.sh` file from this repository and execute it (using `bash`).
-Should you want to inspect the source code of the downloader before running it, you can view it here: [Installer](https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh)
+Should you want to inspect the source code of the downloader before running it, you can view it here: [Installer](https://gitlab.com/mjohanning/RubyTldr/-/raw/master/installer.sh) or simply run `wget install-rtldr.marvinjohanning.de` and run `less file_name` to view the source code.
+
+You could also use `curl` instead, if you prefer:
+`sh -c "$(curl -fsSL install-rtldr.marvinjohanning.de)"`
 
 #### Offline
 If you wish, you are also able to download the repository — which is usually done in the form of a .zip archive —, extract it, enter the folder and run the `installer.sh` file. This is a good option if you wish to install RubyTldr on a machine that does not have `git` and `wget` installed. The installer will recognise that you have the required files on your machine and will not try to download them using `git`.
