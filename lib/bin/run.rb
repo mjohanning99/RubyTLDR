@@ -75,28 +75,30 @@ def run(os)
 				exit
 			end
 
-			case os
-			when "linux"
-					puts @linux
-					parse_md(@linux, page, true)
+			begin
+				case os
+				when "linux"
+						puts @linux
+						parse_md(@linux, page, true)
 
-			when "common"
-					parse_md(@common, page, true)
+				when "common"
+						parse_md(@common, page, true)
 
-			when "windows"
-					parse_md(@windows, page, true)
+				when "windows"
+						parse_md(@windows, page, true)
 
-			when "osx"
-					parse_md(@osx, page, true)
+				when "osx"
+						parse_md(@osx, page, true)
 
-			when "sunos"
-					parse_md(@sunos, page, true)
+				when "sunos"
+						parse_md(@sunos, page, true)
 
-			when "nil"
-				puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+				when "nil"
+					puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+				end
 
-			else
-				puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
+			rescue Errno::ENOENT
+				puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[1]}' and the platform '#{ARGV[0]}'"
 				puts "We are now updating the page cache, please wait"
 				update_pages()
 				puts "SUCCESS!".colorize(:background => :green, :color => :black) + " The page cache has been updated successfully."

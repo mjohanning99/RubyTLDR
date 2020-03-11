@@ -62,7 +62,6 @@ end
 
 #Running the actual program
 begin
-  print @clear_screen
   run(false)
 rescue Errno::ENOENT
   puts "ERROR!".colorize(:background => :red) + " RubyTldr was unable to find any pages on your machine. This is normal if you have just installed it. RubyTldr will now try to download the pages, please wait ..."
