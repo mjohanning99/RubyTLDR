@@ -30,20 +30,8 @@ require 'json' #JSON parsing
 require 'optparse' #Easy creation of an option parser
 require 'open-uri' #For downloading
 require 'socket' #For checking internet connection (pinging)
-begin
-  require 'colorize' #To colour the output
-rescue LoadError
-  `sudo gem install colorize`
-  puts "You did not have the colorize gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not work, please refer to the README and file an issue on https://github.com/jeytas/rubytldr if nothing else works"
-  exit
-end
-begin
-  require 'zip' #To extract the zip file downloaded using open-uri
-rescue LoadError
-  `sudo gem install rubyzip`
-  puts "You did not have the rubyzip gem installed when starting this program. We tried installing it, please run the program again and see if it works correctly. If it does not work, please refer to the README and file an issue on https://github.com/jeytas/rubytldr if nothing else works"
-  exit
-end
+require 'colorize' #To colour the output
+require 'zip' #To extract the zip file downloaded using open-uri
 
 #Methods
 require_relative 'update_pages.rb'
@@ -64,7 +52,6 @@ end
 
 #Predefined variables
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
-@clear_screen = "\e[H\e[2J"
 
 #Pages
 @linux = "#{@parent_directory}/pages/linux"
@@ -76,7 +63,7 @@ end
 #Running the actual program
 begin
   print @clear_screen
-  run()
+  run(false)
 rescue Errno::ENOENT
   puts "ERROR!".colorize(:background => :red) + " RubyTldr was unable to find any pages on your machine. This is normal if you have just installed it. RubyTldr will now try to download the pages, please wait ..."
   update_pages_opt(@parent_directory)

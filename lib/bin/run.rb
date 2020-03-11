@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
-#Variables
+#Pages
 @parent_directory = File.expand_path('..', File.dirname(__FILE__))
 @linux = "#{@parent_directory}/pages/linux"
 @common = "#{@parent_directory}/pages/common"
@@ -26,66 +26,81 @@ along with RubyTldr.  If not, see <http://www.gnu.org/licenses/>.
 @sunos = "#{@parent_directory}/pages/sunos"
 @osx = "#{@parent_directory}/pages/osx"
 
+def clear_screen()
+	print "\e[H\e[2J"
+end
+
 #Checking if the page exists, parsing it using parse_md and downloading it if necessary
-def run()
-  begin
-    page = "#{ARGV[0].downcase}.md"
-  rescue NoMethodError
-    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
-    exit
-  end
-  case operating_system()
-  when "linux"
-    parse_md(@linux, page, false)
-  when "common"
-    parse_md(@common, page, false)
-  when "windows"
-    parse_md(@windows, page, false)
-  when "osx"
-    parse_md(@osx, page, false)
-  when "sunos"
-    parse_md(@sunos, page, false)
-  when "nil"
-    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
-  else
-    puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
-    puts "We are now updating the page cache, please wait"
-    update_pages()
-    puts "SUCCESS!".colorize(:background => :green, :color => :black) + " The page cache has been updated successfully."
-  end
+def run(os)
+	clear_screen()
+	if ARGV.size == 1 && os == false then
+		begin
+			page = "#{ARGV[0].downcase}.md"
+		rescue NoMethodError
+			puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+			exit
+		end
+
+		case operating_system()
+		when "linux"
+			puts @linux
+			parse_md(@linux, page, false)
+
+		when "common"
+			parse_md(@common, page, false)
+
+		when "windows"
+			parse_md(@windows, page, false)
+
+		when "osx"
+			parse_md(@osx, page, false)
+
+		when "sunos"
+			parse_md(@sunos, page, false)
+
+		when "nil"
+			puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+		else
+			puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
+			puts "We are now updating the page cache, please wait"
+			update_pages()
+			puts "SUCCESS!".colorize(:background => :green, :color => :black) + " The page cache has been updated successfully."
+		end
+
+		else
+			begin
+				page = "#{ARGV[1].downcase}.md"
+			rescue NoMethodError
+				puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+				exit
+			end
+
+			case os
+			when "linux"
+					puts @linux
+					parse_md(@linux, page, true)
+
+			when "common"
+					parse_md(@common, page, true)
+
+			when "windows"
+					parse_md(@windows, page, true)
+
+			when "osx"
+					parse_md(@osx, page, true)
+
+			when "sunos"
+					parse_md(@sunos, page, true)
+
+			when "nil"
+				puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
+
+			else
+				puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
+				puts "We are now updating the page cache, please wait"
+				update_pages()
+				puts "SUCCESS!".colorize(:background => :green, :color => :black) + " The page cache has been updated successfully."
+			end
+		end
 end
 
-def run_os(os)
-  begin
-    page = "#{ARGV[1].downcase}.md"
-  rescue NoMethodError
-    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
-    exit
-  end
-
-  case os
-  when "linux"
-      parse_md(@linux, page, true)
-
-  when "common"
-      parse_md(@common, page, true)
-
-  when "windows"
-      parse_md(@windows, page, true)
-
-  when "osx"
-      parse_md(@osx, page, true)
-
-  when "sunos"
-      parse_md(@sunos, page, true)
-
-  when "nil"
-    puts "ERROR!".colorize(:background => :red) + " You need to append an argument to the file to display the tldr (Please use tldr --help for more information)"
-
-  else
-    puts "ERROR!".colorize(:background => :red) + " There was no tldr page found for the command '#{ARGV[0]}'"
-    puts "We are now updating the page cache, please wait"
-    update_pages()
-    puts "SUCCESS!".colorize(:background => :green, :color => :black) + " The page cache has been updated successfully."
-  end
-end

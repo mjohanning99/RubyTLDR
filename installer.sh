@@ -203,8 +203,7 @@ fi
 echo "Creating symlink of ~/.rtldr in /bin."
 if [ -L /bin/rtldr ]; then echo "Symlink exists, not creating a new one."; else sudo ln -s ~/.rtldr/tldr /bin/rtldr; fi
 
-printf "\n"
-
+printf "\n Downloading the latest TLDR pages. This may take a while depending on your internet speed ..."
 /bin/rtldr --update
 
 echo "If you see this message, everything should've been installed correctly. To ensure that it has, please run 'rtldr tldr'. If you get an explanation of this program, then everything worked correctly."

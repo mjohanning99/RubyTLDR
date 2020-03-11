@@ -41,7 +41,7 @@ OptionParser.new do |opt|
   end
 
   opt.on("--platform", "-p", "Specifies the platform whose pages should be displayed") do
-    run_os(ARGV[0].to_s)
+    run(ARGV[0].to_s)
     exit
   end
 
