@@ -1,4 +1,4 @@
-#!/bin/env ruby
+#!/usr/bin/env ruby
 
 =begin
 Copyright 2017-2020 Marvin Johanning
