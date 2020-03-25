@@ -11,7 +11,7 @@ error_catch() {
 ruby_version=$(ruby -v)
 
 #Variable that contains current supported Ruby version
-supported_ruby="2.7.0"
+recommended_ruby="2.7.0"
 
 while getopts ":q" opt; do
   case ${opt} in
@@ -25,9 +25,9 @@ done
 if [[ $ruby_version == *ruby* ]]; then printf "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ... \n\n"; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby using your distribution's package manager or by compiling it from source"; exit; fi
 
 #Informing the user about a his Ruby version if it is not the same as the supported Ruby version
-if [[ ! $ruby_version =~ $supported_ruby ]]; then
+if [[ ! $ruby_version =~ $recommended_ruby ]]; then
   while true; do
-    read -r -p "You are not running the recommended Ruby Version $supported_ruby your machine; this may lead to unintended side-effects and can make the program unsuable! Are you sure you want to continue? [y/n] " input
+    read -r -p "You are not running the recommended Ruby Version $recommended_ruby your machine; this may lead to unintended side-effects and can make the program unsuable! Are you sure you want to continue? [y/n] " input
 
   case $input in
     [yY][eE][sS]|[yY])
