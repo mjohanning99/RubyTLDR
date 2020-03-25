@@ -10,6 +10,9 @@ error_catch() {
 #Variable that stores the ruby version installed on the computer
 ruby_version=$(ruby -v)
 
+#Variable that contains current supported Ruby version
+supported_ruby="2.7.0"
+
 while getopts ":q" opt; do
   case ${opt} in
     q )
@@ -21,13 +24,32 @@ done
 #Informing the user about their current Ruby installation / Informing them of a missing Ruby installation and exiting the installer.
 if [[ $ruby_version == *ruby* ]]; then printf "A Ruby installation ($ruby_version) has been found on your machine. Proceeding ... \n\n"; else "No Ruby installation could be found on your machine. Please download the latest version of Ruby using your distribution's package manager or by compiling it from source"; exit; fi
 
+#Informing the user about a his Ruby version if it is not the same as the supported Ruby version
+if [[ ! $ruby_version =~ $supported_ruby ]]; then
+  while true; do
+    read -r -p "You are not running the recommended Ruby Version $supported_ruby your machine; this may lead to unintended side-effects and can make the program unsuable! Are you sure you want to continue? [y/n] " input
+
+  case $input in
+    [yY][eE][sS]|[yY])
+      echo "Continuing with installation..."
+      break
+      ;;
+    [nN][oO]|[nN])
+      echo "Aborting installation!"
+      exit
+      ;;
+    *)
+      echo "Invalid input. Please enter 'Y' or 'N'"
+      ;;
+    esac
+  done
+fi
+
 #Check if the default installation directory (~/.rtldr) already exists, inform the user and give them the choice of having it deleted.
 if [[ -e ~/.rtldr ]]; then
-  printf "The program seems to have already been installed previously, since the ~/.rtldr folder already exists? Do you wish to remove the folder and replace the old RubyTldr version with the one you have just downloaded?"
-
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [y/n] " input
+      read -r -p "The program seems to have already been installed previously, since the ~/.rtldr folder already exists? Do you wish to remove the folder and replace the old RubyTldr version with the one you have just downloaded? [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
@@ -82,11 +104,9 @@ if [[ -e tldr && -e lib/bin/tldr.rb ]]; then
 fi
 
 if [ -L /bin/rtldr ]; then
-  printf "It seems like this program has already been installed previously, since there already exists a symlink called 'rtldr' within the /bin folder. It is recommended to delete this file as it may point to an incorrect location and could thus potentially destroy your rtldr installation. Would you like the installer to delete the symbolic link?"
-
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [y/n] " input
+      read -r -p "It seems like this program has already been installed previously, since there already exists a symlink called 'rtldr' within the /bin folder. It is recommended to delete this file as it may point to an incorrect location and could thus potentially destroy your rtldr installation. Would you like the installer to delete the symbolic link? [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
@@ -118,11 +138,9 @@ if [ -L /bin/rtldr ]; then
 fi
 
 if [[ `gem list` != *colorize* ]]; then
-  printf "The gem (extension) called 'colorize' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you?"
-
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [y/n] " input
+      read -r -p "The gem (extension) called 'colorize' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
@@ -155,11 +173,9 @@ if [[ `gem list` != *colorize* ]]; then
 fi
 
 if [[ `gem list` != *rubyzip* ]]; then
-  printf "The gem (extension) called 'rubyzip' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you?"
-
   if [ ! $no_questions ]; then
     while true; do
-      read -r -p " [y/n] " input
+      read -r -p "The gem (extension) called 'rubyzip' could not be found in your local Ruby installation. It is, however, required in order to be able to run rtldr. Do you wish to let the installer try to install it for you? [y/n] " input
 
       case $input in
         [yY][eE][sS]|[yY])
