@@ -25,13 +25,15 @@ unless /linux/ =~ RUBY_PLATFORM then
 end
 
 #Gems and other extensions
+require 'rubygems'
+require 'bundler/setup'
 require 'fileutils' #Utilities for handling removing, moving (etc.) files
 require 'json' #JSON parsing
 require 'optparse' #Easy creation of an option parser
 require 'open-uri' #For downloading
 require 'socket' #For checking internet connection (pinging)
-require 'colorize' #To colour the output
-require 'zip' #To extract the zip file downloaded using open-uri
+require 'zip'
+require 'colorize'
 
 #Methods
 require_relative 'update_pages.rb'
